@@ -1,2072 +1,1155 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>suratcintakita - Katalog Undangan Digital Eksklusif</title>
-  <meta name="description" content="Katalog undangan digital pernikahan modern dan elegan dari suratcintakita. Developed by Tewe Store.">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              50: '#fff1f2',
-              100: '#ffe4e6',
-              200: '#fecdd3',
-              300: '#fda4af',
-              400: '#fb7185',
-              500: '#f43f5e',
-              600: '#e11d48',
-              700: '#be123c',
-              800: '#9f1239',
-              900: '#881337',
-            },
-            gold: {
-              400: '#fbbf24',
-              500: '#d97706',
-              600: '#b45309',
-            }
-          },
-          fontFamily: {
-            serif: ['Georgia', 'Cambria', 'serif'],
-            sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
-          }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#fffaf7">
+<meta name="description" content="suratcintakita - Katalog undangan digital elegan, modern, ringan dan responsif.">
+<title>suratcintakita — Undangan Digital</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['Plus Jakarta Sans', 'sans-serif'],
+        serif: ['Playfair Display', 'serif'],
+        script: ['Great Vibes', 'cursive']
+      },
+      colors: {
+        rose: {
+          50: '#fff7f8',
+          100: '#ffedf0',
+          200: '#fbd5dc',
+          300: '#f6b7c4',
+          400: '#ed91a4',
+          500: '#df7088',
+          600: '#cc506d',
+          700: '#ad3d59',
+          800: '#8f354c',
+          900: '#793242'
         }
       }
     }
-  </script>
-  <style>
-    * {
-      -webkit-tap-highlight-color: transparent;
-      outline: none;
-    }
-    body {
-      min-height: 100dvh;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-      overflow-x: hidden;
-    }
-    .custom-scrollbar::-webkit-scrollbar {
-      height: 4px;
-      width: 4px;
-    }
-    .custom-scrollbar::-webkit-scrollbar-thumb {
-      background: #f43f5e;
-      border-radius: 9999px;
-    }
-    .custom-scrollbar::-webkit-scrollbar-track {
-      background: transparent;
-    }
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-      }
-    }
-
-    #testimonial-list article { content-visibility: auto; contain-intrinsic-size: 110px; }
-    @media (max-width: 640px) {
-      .shadow-2xl {
-        box-shadow: 0 8px 24px rgba(28,25,23,.12) !important;
-      }
-      .shadow-xl {
-        box-shadow: 0 6px 18px rgba(28,25,23,.10) !important;
-      }
-      .shadow-lg {
-        box-shadow: 0 4px 14px rgba(28,25,23,.08) !important;
-      }
-    }
-
-  </style>
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fffaf7;
+  --surface:#ffffff;
+  --text:#392b2e;
+  --muted:#866f74;
+  --accent:#c95f77;
+  --accent-dark:#a9455f;
+  --line:rgba(110,72,81,.10);
+  --radius:24px;
+}
+*{
+  box-sizing:border-box;
+}
+html{
+  scroll-behavior:smooth;
+  -webkit-text-size-adjust:100%;
+}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Plus Jakarta Sans',sans-serif;
+  overflow-x:hidden;
+  text-rendering:optimizeLegibility;
+  -webkit-font-smoothing:antialiased;
+}
+img{
+  display:block;
+  max-width:100%;
+}
+button,a{
+  -webkit-tap-highlight-color:transparent;
+}
+button{
+  font:inherit;
+}
+::selection{
+  background:#f5c8d1;
+  color:#4a2830;
+}
+.container-main{
+  width:min(1180px,calc(100% - 32px));
+  margin-inline:auto;
+}
+.header-shell{
+  position:fixed;
+  left:0;
+  right:0;
+  top:0;
+  z-index:50;
+  transition:transform .28s ease,background-color .28s ease,border-color .28s ease;
+}
+.header-inner{
+  width:min(1180px,calc(100% - 24px));
+  margin:10px auto 0;
+  min-height:64px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  border:1px solid rgba(110,72,81,.08);
+  border-radius:20px;
+  background:rgba(255,250,247,.94);
+}
+.header-brand{
+  min-width:0;
+}
+.brand-title{
+  font-family:'Playfair Display',serif;
+  font-size:20px;
+  line-height:1;
+  font-weight:700;
+  letter-spacing:-.03em;
+  color:#4a3036;
+}
+.brand-url{
+  margin-top:4px;
+  font-size:9px;
+  line-height:1;
+  color:#9f858b;
+  white-space:nowrap;
+}
+.nav-link{
+  color:#735c62;
+  font-size:13px;
+  font-weight:600;
+  transition:color .2s ease;
+}
+.nav-link:hover{
+  color:var(--accent-dark);
+}
+.btn-primary,
+.btn-secondary{
+  min-height:44px;
+  padding:0 18px;
+  border-radius:999px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  font-size:13px;
+  font-weight:700;
+  transition:transform .2s ease,background-color .2s ease,color .2s ease,border-color .2s ease;
+  will-change:transform;
+}
+.btn-primary{
+  color:white;
+  background:var(--accent);
+}
+.btn-primary:hover{
+  background:var(--accent-dark);
+}
+.btn-secondary{
+  color:#6e535a;
+  border:1px solid rgba(110,72,81,.12);
+  background:#fff;
+}
+.btn-primary:active,
+.btn-secondary:active{
+  transform:scale(.97);
+}
+.hero{
+  position:relative;
+  min-height:100svh;
+  padding-top:130px;
+  padding-bottom:48px;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  width:340px;
+  height:340px;
+  left:-170px;
+  top:90px;
+  border-radius:50%;
+  background:rgba(237,145,164,.16);
+  pointer-events:none;
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  width:260px;
+  height:260px;
+  right:-130px;
+  bottom:20px;
+  border-radius:50%;
+  background:rgba(216,170,124,.12);
+  pointer-events:none;
+}
+.hero-grid{
+  position:relative;
+  z-index:1;
+  display:grid;
+  gap:30px;
+}
+.hero-copy{
+  text-align:center;
+}
+.hero-kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 12px;
+  border:1px solid rgba(201,95,119,.14);
+  border-radius:999px;
+  color:#b45e72;
+  background:rgba(255,255,255,.72);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.hero-title{
+  margin-top:18px;
+  font-family:'Playfair Display',serif;
+  font-size:clamp(43px,12vw,76px);
+  line-height:.98;
+  letter-spacing:-.045em;
+  font-weight:600;
+  color:#4c3439;
+}
+.hero-title span{
+  display:block;
+  color:var(--accent);
+  font-family:'Great Vibes',cursive;
+  font-size:1.15em;
+  font-weight:400;
+  letter-spacing:0;
+  margin-top:3px;
+}
+.hero-description{
+  max-width:540px;
+  margin:20px auto 0;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.8;
+}
+.hero-actions{
+  margin-top:25px;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+}
+.hero-note{
+  margin-top:18px;
+  color:#a1888d;
+  font-size:11px;
+}
+.hero-showcase{
+  position:relative;
+}
+.phone-stage{
+  width:min(100%,340px);
+  margin-inline:auto;
+  position:relative;
+}
+.phone-frame{
+  position:relative;
+  padding:8px;
+  border-radius:34px;
+  background:#2f2024;
+  box-shadow:0 22px 60px rgba(75,43,50,.16);
+}
+.phone-screen{
+  overflow:hidden;
+  position:relative;
+  min-height:460px;
+  aspect-ratio:9/17;
+  border-radius:27px;
+  background:
+    linear-gradient(180deg,rgba(62,25,36,.10),rgba(62,25,36,.46)),
+    url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=75");
+  background-size:cover;
+  background-position:center;
+}
+.phone-content{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  padding:30px 20px;
+  text-align:center;
+}
+.phone-card{
+  width:100%;
+  padding:22px 16px;
+  border-radius:22px;
+  background:rgba(255,250,247,.94);
+}
+.phone-card small{
+  font-size:9px;
+  letter-spacing:.18em;
+  font-weight:800;
+  color:#9e747d;
+}
+.phone-card h3{
+  margin-top:8px;
+  font-family:'Great Vibes',cursive;
+  font-size:42px;
+  font-weight:400;
+  line-height:1;
+  color:#9f455d;
+}
+.phone-card p{
+  margin-top:8px;
+  color:#816a70;
+  font-family:'Playfair Display',serif;
+  font-size:12px;
+}
+.section{
+  position:relative;
+  padding:76px 0;
+}
+.section-soft{
+  background:#fff4f5;
+}
+.section-head{
+  text-align:center;
+  max-width:680px;
+  margin-inline:auto;
+}
+.section-kicker{
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  font-weight:800;
+  color:#b35c71;
+}
+.section-title{
+  margin-top:10px;
+  font-family:'Playfair Display',serif;
+  font-size:clamp(30px,7vw,48px);
+  line-height:1.1;
+  letter-spacing:-.035em;
+  color:#4a3238;
+}
+.section-desc{
+  margin-top:14px;
+  color:#877075;
+  font-size:13px;
+  line-height:1.75;
+}
+.catalog-grid{
+  margin-top:38px;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:18px;
+}
+.card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  overflow:hidden;
+}
+.invitation-card{
+  display:flex;
+  flex-direction:column;
+}
+.card-image-wrap{
+  position:relative;
+  aspect-ratio:4/5;
+  overflow:hidden;
+  background:#f5e9e9;
+}
+.card-image{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .5s ease;
+}
+.invitation-card:hover .card-image{
+  transform:scale(1.025);
+}
+.card-badge{
+  position:absolute;
+  top:12px;
+  left:12px;
+  padding:7px 10px;
+  border-radius:999px;
+  background:rgba(255,255,255,.94);
+  color:#8d5360;
+  font-size:9px;
+  line-height:1;
+  font-weight:800;
+}
+.card-body{
+  padding:18px;
+}
+.card-category{
+  color:#ba6177;
+  font-size:9px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.16em;
+}
+.card-title{
+  margin-top:7px;
+  font-family:'Playfair Display',serif;
+  font-size:23px;
+  line-height:1.15;
+  color:#483137;
+}
+.card-text{
+  margin-top:8px;
+  color:#887278;
+  font-size:12px;
+  line-height:1.65;
+}
+.card-footer{
+  margin-top:16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+.card-price{
+  color:#8d505f;
+  font-size:11px;
+  font-weight:800;
+}
+.features{
+  margin-top:38px;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;
+}
+.feature-card{
+  padding:22px;
+  border:1px solid var(--line);
+  border-radius:22px;
+  background:#fff;
+}
+.feature-icon{
+  width:44px;
+  height:44px;
+  border-radius:15px;
+  display:grid;
+  place-items:center;
+  background:#fff0f2;
+  color:#c46077;
+  font-size:18px;
+}
+.feature-title{
+  margin-top:15px;
+  font-family:'Playfair Display',serif;
+  font-size:20px;
+  color:#493238;
+}
+.feature-text{
+  margin-top:7px;
+  color:#877176;
+  font-size:12px;
+  line-height:1.7;
+}
+.steps{
+  margin-top:38px;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;
+  counter-reset:step;
+}
+.step{
+  display:flex;
+  gap:15px;
+  padding:20px;
+  border-radius:22px;
+  border:1px solid var(--line);
+  background:#fff;
+}
+.step-number{
+  flex:none;
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#fff0f2;
+  color:#b35468;
+  font-family:'Playfair Display',serif;
+  font-size:18px;
+}
+.step-title{
+  font-family:'Playfair Display',serif;
+  font-size:18px;
+  color:#4b343a;
+}
+.step-text{
+  margin-top:5px;
+  color:#8b757a;
+  font-size:12px;
+  line-height:1.6;
+}
+.cta{
+  padding:28px;
+  border-radius:30px;
+  background:
+    linear-gradient(145deg,#fff0f2,#fff9f5);
+  border:1px solid rgba(201,95,119,.10);
+  text-align:center;
+}
+.cta-title{
+  font-family:'Playfair Display',serif;
+  font-size:31px;
+  line-height:1.1;
+  color:#493238;
+}
+.cta-text{
+  max-width:550px;
+  margin:12px auto 0;
+  color:#846d73;
+  font-size:13px;
+  line-height:1.7;
+}
+.cta-actions{
+  margin-top:20px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+}
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:18px;
+}
+.contact-card{
+  padding:24px;
+  border:1px solid var(--line);
+  border-radius:24px;
+  background:#fff;
+}
+.contact-label{
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.16em;
+  font-weight:800;
+  color:#b35e72;
+}
+.contact-title{
+  margin-top:9px;
+  font-family:'Playfair Display',serif;
+  font-size:25px;
+  color:#4a3339;
+}
+.contact-info{
+  margin-top:8px;
+  color:#836d73;
+  font-size:13px;
+  line-height:1.7;
+}
+.contact-link{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-top:17px;
+  color:#ae4d67;
+  font-size:12px;
+  font-weight:800;
+}
+.footer{
+  padding:28px 0 36px;
+  border-top:1px solid var(--line);
+}
+.footer-inner{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  text-align:center;
+}
+.footer-brand{
+  font-family:'Playfair Display',serif;
+  font-size:20px;
+  color:#4a3339;
+}
+.footer-text{
+  color:#927b80;
+  font-size:11px;
+  line-height:1.6;
+}
+.footer-developer{
+  color:#ad526a;
+  font-weight:800;
+}
+.mobile-order{
+  position:fixed;
+  left:14px;
+  right:14px;
+  bottom:14px;
+  z-index:45;
+  display:block;
+}
+.mobile-order a{
+  width:100%;
+  min-height:52px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  border-radius:18px;
+  background:#b95069;
+  color:#fff;
+  font-size:13px;
+  font-weight:800;
+}
+.mobile-space{
+  height:82px;
+}
+@media (min-width:640px){
+  .container-main{
+    width:min(1180px,calc(100% - 48px));
+  }
+  .catalog-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+  }
+  .features{
+    grid-template-columns:repeat(2,1fr);
+  }
+  .steps{
+    grid-template-columns:repeat(2,1fr);
+  }
+  .contact-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+@media (min-width:900px){
+  .header-inner{
+    min-height:68px;
+    margin-top:14px;
+    width:min(1180px,calc(100% - 48px));
+    padding:0 10px 0 18px;
+  }
+  .header-nav{
+    display:flex;
+  }
+  .mobile-order,
+  .mobile-space{
+    display:none;
+  }
+  .hero{
+    padding-top:110px;
+  }
+  .hero-grid{
+    grid-template-columns:minmax(0,1fr) minmax(340px,460px);
+    align-items:center;
+    gap:60px;
+  }
+  .hero-copy{
+    text-align:left;
+  }
+  .hero-description{
+    margin-left:0;
+    margin-right:0;
+  }
+  .hero-actions{
+    justify-content:flex-start;
+  }
+  .phone-stage{
+    width:min(100%,390px);
+  }
+  .catalog-grid{
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+  }
+  .features{
+    grid-template-columns:repeat(4,1fr);
+  }
+  .steps{
+    grid-template-columns:repeat(4,1fr);
+  }
+  .contact-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+@media (max-width:899px){
+  .header-nav{
+    display:none;
+  }
+}
+@media (prefers-reduced-motion:reduce){
+  html{
+    scroll-behavior:auto;
+  }
+  *,
+  *::before,
+  *::after{
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+  }
+}
+</style>
 </head>
-<body class="bg-stone-50 text-stone-800 font-sans selection:bg-brand-100 selection:text-brand-800 pb-12">
+<body>
 
-  <header class="sticky top-0 z-40 bg-white/95 border-b border-rose-100 transition-shadow duration-200">
-    <div class="max-w-7xl mx-auto px-3 sm:px-6">
-      <div class="flex items-center justify-between h-14 sm:h-16 gap-2">
-        <a href="#" class="flex items-center gap-2 group flex-shrink-0">
-          <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-brand-500 text-white flex items-center justify-center transform group-active:scale-95 transition-transform duration-150">
-            <svg class="w-4 h-4 sm:w-5 sm:h-5 fill-current" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-          </div>
-          <div>
-            <span id="nav-title" class="font-serif text-base sm:text-xl font-bold tracking-tight text-stone-900 block leading-tight">suratcintakita</span>
-            <span class="text-[10px] sm:text-xs text-brand-600 font-medium block leading-none">Cerita cintamu, dalam satu surat.</span>
-          </div>
-        </a>
+<header id="siteHeader" class="header-shell">
+  <div class="header-inner">
+    <a href="#home" class="header-brand">
+      <div class="brand-title">suratcintakita</div>
+      <div class="brand-url">suratcintakita.netlify.app</div>
+    </a>
 
-        <div class="flex items-center gap-1.5 sm:gap-2">
-          <button id="btn-show-favs" type="button" class="relative flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-rose-50 text-rose-700 hover:bg-rose-100 border border-rose-200 active:scale-95 transition-transform duration-150">
-            <svg class="w-4 h-4 fill-rose-600" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-            <span class="hidden sm:inline">Favorit</span>
-            <span id="fav-counter" class="w-4 h-4 rounded-full bg-brand-600 text-white text-[10px] flex items-center justify-center font-bold">0</span>
-          </button>
+    <nav class="header-nav items-center gap-7">
+      <a href="#katalog" class="nav-link">Katalog</a>
+      <a href="#keunggulan" class="nav-link">Keunggulan</a>
+      <a href="#cara-order" class="nav-link">Cara Order</a>
+      <a href="#kontak" class="nav-link">Kontak</a>
+    </nav>
 
-          <button id="btn-open-admin-login" type="button" class="p-2 sm:px-3 sm:py-1.5 rounded-full text-xs font-semibold bg-stone-100 text-stone-700 hover:bg-stone-200 border border-stone-200 flex items-center gap-1 active:scale-95 transition-transform duration-150" title="Superadmin Panel">
-            <svg class="w-4 h-4 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
-            <span class="hidden sm:inline">Admin</span>
-          </button>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <section class="bg-gradient-to-b from-rose-50/70 via-stone-50 to-stone-50 pt-5 pb-6 sm:py-10 border-b border-rose-100/60">
-    <div class="max-w-4xl mx-auto px-4 text-center">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-rose-200/80 shadow-sm text-xs font-medium text-rose-700 mb-3 sm:mb-4">
-        <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
-        <span>Koleksi Tema Pernikahan Elegan</span>
-      </div>
-
-      <h1 id="hero-heading" class="font-serif text-2xl sm:text-4xl md:text-5xl font-bold text-stone-900 tracking-tight leading-snug sm:leading-tight">
-        Bagikan Cerita Cinta Anda dengan Undangan Digital Terbaik
-      </h1>
-
-      <p id="hero-sub" class="mt-2.5 sm:mt-3 text-stone-600 text-xs sm:text-base max-w-2xl mx-auto leading-relaxed">
-        Pilihan desain eksklusif, responsif mobile, audio musik otomatis, integrasi RSVP & amplop digital. Siap digunakan dalam hitungan menit.
-      </p>
-
-      <div class="mt-4 sm:mt-6 flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs">
-        <a id="btn-hero-wa" href="https://wa.me/6282323624177?text=Halo%20Tewe%20Store,%20saya%20tertarik%20konsultasi%20undangan%20digital%20suratcintakita" target="_blank" class="inline-flex items-center gap-2 bg-brand-600 text-white font-medium px-4 py-2.5 rounded-full shadow-sm hover:bg-brand-700 active:scale-95 transition duration-150">
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.772.82 2.791.82 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.745 0-3.385-.45-4.82-1.238l-7.18 1.88 1.91-6.992c-.895-1.503-1.41-3.256-1.41-5.15 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
-          <span>Konsultasi & Order via WhatsApp</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <main class="max-w-7xl mx-auto px-3 sm:px-6 py-6">
-    <div class="mb-5 space-y-3">
-      <div class="flex flex-col sm:flex-row gap-2.5 items-stretch sm:items-center justify-between">
-        <div class="relative flex-1 max-w-md">
-          <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-stone-400">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-          </div>
-          <input id="search-input" type="text" enterkeyhint="search" placeholder="Cari nama desain atau kode undangan..." class="w-full pl-9 pr-8 py-2 text-xs sm:text-sm bg-white border border-stone-200 rounded-full focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors">
-          <button id="search-clear" type="button" class="hidden absolute inset-y-0 right-0 pr-3 flex items-center text-stone-400 hover:text-stone-600">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-          </button>
-        </div>
-
-        <div class="flex items-center gap-2 self-end sm:self-auto text-xs text-stone-500 font-medium">
-          <span>Menampilkan:</span>
-          <span id="product-count-badge" class="px-2 py-0.5 rounded-full bg-stone-200 text-stone-700 font-bold">0</span>
-          <span>tema</span>
-        </div>
-      </div>
-
-      <div class="flex items-center gap-1.5 overflow-x-auto pb-1.5 pt-0.5 custom-scrollbar touch-pan-x" id="filter-container">
-        <button data-filter="all" class="filter-tab flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-brand-600 text-white shadow-sm border border-brand-600 transition duration-150">Semua</button>
-        <button data-filter="bestseller" class="filter-tab flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white text-stone-600 border border-stone-200 hover:bg-stone-50 transition duration-150">Best Seller</button>
-        <button data-filter="new" class="filter-tab flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white text-stone-600 border border-stone-200 hover:bg-stone-50 transition duration-150">Terbaru</button>
-        <button data-filter="favs" class="filter-tab flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white text-stone-600 border border-stone-200 hover:bg-stone-50 transition duration-150">❤️ Favorit Saya</button>
-        <button data-filter="Floral" class="filter-tab flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white text-stone-600 border border-stone-200 hover:bg-stone-50 transition duration-150">Floral</button>
-        <button data-filter="Minimalis" class="filter-tab flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white text-stone-600 border border-stone-200 hover:bg-stone-50 transition duration-150">Minimalis</button>
-        <button data-filter="Adat" class="filter-tab flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white text-stone-600 border border-stone-200 hover:bg-stone-50 transition duration-150">Adat</button>
-        <button data-filter="Islami" class="filter-tab flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white text-stone-600 border border-stone-200 hover:bg-stone-50 transition duration-150">Islami</button>
-      </div>
-    </div>
-
-    <div id="catalog-grid" class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-5"></div>
-
-    <div id="empty-state" class="hidden text-center py-16 px-4 bg-white rounded-2xl border border-dashed border-stone-200 mt-4">
-      <div class="w-14 h-14 mx-auto rounded-full bg-rose-50 text-rose-500 flex items-center justify-center mb-3">
-        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-      </div>
-      <h3 class="text-sm sm:text-base font-bold text-stone-800">Tidak ada tema yang cocok</h3>
-      <p class="text-xs text-stone-500 mt-1 max-w-sm mx-auto">Coba ganti kata kunci pencarian atau pilih filter kategori lainnya.</p>
-      <button id="btn-reset-filters" type="button" class="mt-4 px-4 py-1.5 text-xs font-semibold bg-brand-600 text-white rounded-full">Tampilkan Semua Undangan</button>
-    </div>
-  </main>
-
-  <section id="testimonials-section" class="max-w-4xl mx-auto px-3 sm:px-6 pb-8">
-    <div class="bg-white rounded-2xl border border-rose-100 p-4 sm:p-6 shadow-sm">
-      <div class="text-center mb-5">
-        <span class="text-[10px] font-bold uppercase tracking-widest text-brand-600">Testimoni Customer</span>
-        <h2 class="font-serif text-xl sm:text-2xl font-bold text-stone-900 mt-1">Cerita dari Pelanggan</h2>
-        <p class="text-xs text-stone-500 mt-1">Bagikan pengalaman Anda secara anonim tanpa perlu login.</p>
-      </div>
-      <form id="form-testimonial" class="space-y-3 mb-5">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-          <input id="testimonial-name" type="text" maxlength="40" placeholder="Nama samaran (opsional)" class="w-full px-3 py-2 text-xs border border-stone-200 rounded-lg bg-stone-50 focus:bg-white focus:border-brand-500">
-          <select id="testimonial-rating" class="w-full px-3 py-2 text-xs border border-stone-200 rounded-lg bg-stone-50 focus:bg-white focus:border-brand-500">
-            <option value="5">★★★★★ Sangat puas</option>
-            <option value="4">★★★★☆ Puas</option>
-            <option value="3">★★★☆☆ Cukup puas</option>
-            <option value="2">★★☆☆☆ Kurang puas</option>
-            <option value="1">★☆☆☆☆ Tidak puas</option>
-          </select>
-        </div>
-        <textarea id="testimonial-message" rows="3" maxlength="500" required placeholder="Tulis pengalaman Anda..." class="w-full px-3 py-2 text-xs border border-stone-200 rounded-lg bg-stone-50 focus:bg-white focus:border-brand-500"></textarea>
-        <button type="submit" class="w-full sm:w-auto px-4 py-2.5 rounded-lg bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold">Kirim Testimoni</button>
-      </form>
-      <div id="testimonial-list" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
-      <div id="testimonial-empty" class="hidden text-center py-6 text-xs text-stone-400">Belum ada testimoni. Jadilah yang pertama berbagi pengalaman.</div>
-    </div>
-  </section>
-
-  <footer class="mt-12 bg-white border-t border-rose-100 pt-8 pb-10">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-      <div class="flex items-center justify-center gap-2 mb-2">
-        <div class="w-6 h-6 rounded-full bg-brand-500 text-white flex items-center justify-center">
-          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-        </div>
-        <span id="footer-brand-title" class="font-serif font-bold text-lg text-stone-900">suratcintakita</span>
-      </div>
-
-      <p id="footer-desc" class="text-xs text-stone-500 max-w-md mx-auto leading-relaxed mb-4">
-        Platform katalog undangan digital online kekinian, elegan, dan siap pakai.
-      </p>
-
-      <div class="inline-flex flex-wrap items-center justify-center gap-3 text-xs bg-rose-50/70 border border-rose-100 px-4 py-2 rounded-full mb-6">
-        <span class="text-stone-600">Dikembangkan oleh :</span>
-        <a id="dev-wa-link" href="https://wa.me/6282323624177?text=Halo%20Tewe%20Store,%20saya%20menghubungi%20dari%20website%20suratcintakita" target="_blank" class="font-bold text-brand-600 hover:text-brand-700 flex items-center gap-1 no-underline">
-          <span>Tewe Store</span>
-        </a>
-      </div>
-
-      <div class="text-[11px] text-stone-400 space-y-1.5">
-        <div>&copy; <span id="current-year"></span> suratcintakita.</div>
-        <a id="footer-site-url" href="https://suratcintakita.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-1 text-brand-600 hover:text-brand-700 font-semibold break-all">
-          <span id="footer-site-url-text">https://suratcintakita.vercel.app/</span>
-        </a>
-      </div>
-    </div>
-  </footer>
-
-  <div id="modal-preview" class="fixed inset-0 z-50 hidden flex items-end sm:items-center justify-center bg-stone-900/60 p-0 sm:p-4">
-    <div class="bg-white w-full sm:max-w-lg rounded-t-2xl sm:rounded-2xl max-h-[90dvh] flex flex-col overflow-hidden shadow-xl">
-      <div class="px-4 py-3 border-b border-stone-100 flex items-center justify-between">
-        <div class="flex items-center gap-2">
-          <span id="modal-prev-code" class="text-[11px] font-mono bg-stone-100 text-stone-700 font-bold px-2 py-0.5 rounded"></span>
-          <h3 id="modal-prev-title" class="font-bold text-sm sm:text-base text-stone-900 truncate"></h3>
-        </div>
-        <button id="btn-close-preview" type="button" class="p-1.5 text-stone-400 hover:text-stone-700 rounded-full hover:bg-stone-100">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-        </button>
-      </div>
-      <div class="overflow-y-auto p-4 space-y-3 custom-scrollbar flex-1">
-        <div class="relative rounded-xl overflow-hidden bg-stone-100 border border-stone-200">
-          <img id="modal-prev-image" src="" alt="" class="w-full h-56 sm:h-72 object-cover" loading="lazy">
-          <span id="modal-prev-category" class="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-white/95 text-stone-700 shadow-sm"></span>
-        </div>
-        <div class="flex items-baseline gap-2">
-          <span id="modal-prev-price" class="text-lg font-bold text-brand-600"></span>
-          <span id="modal-prev-strike" class="text-xs line-through text-stone-400"></span>
-        </div>
-        <p id="modal-prev-desc" class="text-xs text-stone-600 leading-relaxed"></p>
-      </div>
-      <div class="p-3 border-t border-stone-100 bg-stone-50 flex gap-2">
-        <a id="modal-prev-demo-link" href="#" target="_blank" class="flex-1 text-center py-2.5 px-3 rounded-full text-xs font-bold border border-stone-300 text-stone-700 bg-white hover:bg-stone-100 active:scale-95 transition">Lihat Link Demo</a>
-        <a id="modal-prev-wa-btn" href="#" target="_blank" class="flex-1 text-center py-2.5 px-3 rounded-full text-xs font-bold bg-brand-600 hover:bg-brand-700 text-white active:scale-95 transition flex items-center justify-center gap-1.5">
-          <span>Pesan via WA</span>
-        </a>
-      </div>
-    </div>
+    <a href="https://wa.me/6282323624177?text=Halo%20Tewe%20Store%2C%20saya%20ingin%20order%20undangan%20digital." target="_blank" rel="noopener" class="btn-primary">
+      Order Sekarang
+    </a>
   </div>
+</header>
 
-  <div id="modal-admin-login" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-stone-900/60 p-4">
-    <div class="bg-white w-full max-w-sm rounded-2xl p-5 shadow-2xl space-y-4">
-      <div class="text-center">
-        <div class="w-10 h-10 mx-auto rounded-full bg-rose-100 text-brand-600 flex items-center justify-center mb-2">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
-        </div>
-        <h3 class="font-bold text-base text-stone-900">Masuk Panel Admin</h3>
-        <p class="text-xs text-stone-500 mt-0.5">Masuk sebagai Owner atau Crew sesuai akun yang tersedia</p>
-      </div>
-      <form id="form-admin-login" class="space-y-3">
-        <div>
-          <label class="block text-xs font-medium text-stone-700 mb-1">Username</label>
-          <input id="input-admin-username" type="text" required autocomplete="username" placeholder="Username" class="w-full px-3 py-2 text-xs bg-stone-50 border border-stone-200 rounded-lg focus:bg-white focus:border-brand-500 focus:ring-1 focus:ring-brand-500">
-        </div>
-        <div>
-          <label class="block text-xs font-medium text-stone-700 mb-1">Kata Sandi</label>
-          <input id="input-admin-pass" type="password" required autocomplete="current-password" placeholder="Kata sandi" class="w-full px-3 py-2 text-xs bg-stone-50 border border-stone-200 rounded-lg focus:bg-white focus:border-brand-500 focus:ring-1 focus:ring-brand-500">
-        </div>
-        <div id="login-error-msg" class="hidden text-xs text-red-600 text-center font-medium">Username atau kata sandi salah!</div>
-        <div class="flex gap-2 pt-1">
-          <button id="btn-cancel-admin-login" type="button" class="flex-1 py-2 rounded-lg border border-stone-200 text-xs font-semibold text-stone-600 hover:bg-stone-50">Batal</button>
-          <button type="submit" class="flex-1 py-2 rounded-lg bg-brand-600 text-xs font-semibold text-white hover:bg-brand-700">Masuk</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <div id="modal-admin-dashboard" class="fixed inset-0 z-50 hidden bg-stone-900/60 flex items-end sm:items-center justify-center p-0 sm:p-4">
-    <div class="bg-white w-full sm:max-w-4xl h-[95dvh] sm:h-[88dvh] rounded-t-2xl sm:rounded-2xl flex flex-col overflow-hidden shadow-2xl">
-      <div class="px-4 py-3 bg-stone-900 text-white flex items-center justify-between flex-shrink-0">
-        <div class="flex items-center gap-2">
-          <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
-          <div>
-            <h2 id="admin-panel-title" class="font-bold text-sm sm:text-base">Panel Admin</h2>
-            <div id="admin-panel-user" class="text-[10px] text-stone-400 font-medium"></div>
-          </div>
-        </div>
-        <div class="flex items-center gap-2">
-          <button id="btn-logout-admin" type="button" class="text-xs bg-stone-800 hover:bg-stone-700 text-stone-300 hover:text-white px-2.5 py-1 rounded-md border border-stone-700">Keluar</button>
-          <button id="btn-close-admin-dash" type="button" class="text-stone-400 hover:text-white p-1">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-          </button>
-        </div>
-      </div>
-
-      <div class="flex border-b border-stone-200 bg-stone-50 px-3 overflow-x-auto custom-scrollbar flex-shrink-0">
-        <button id="tab-btn-items" type="button" class="admin-tab px-4 py-2.5 text-xs font-bold border-b-2 border-brand-600 text-brand-600 whitespace-nowrap">Kelola Katalog (<span id="admin-item-count">0</span>)</button>
-        <button id="tab-btn-settings" type="button" class="admin-tab px-4 py-2.5 text-xs font-bold border-b-2 border-transparent text-stone-500 hover:text-stone-800 whitespace-nowrap">Pengaturan Website</button>
-        <button id="tab-btn-accounts" type="button" class="admin-tab hidden px-4 py-2.5 text-xs font-bold border-b-2 border-transparent text-stone-500 hover:text-stone-800 whitespace-nowrap">Akun & Akses</button>
-        <button id="tab-btn-security" type="button" class="admin-tab px-4 py-2.5 text-xs font-bold border-b-2 border-transparent text-stone-500 hover:text-stone-800 whitespace-nowrap">Akun Saya</button>
-        <button id="tab-btn-testimonials" type="button" class="admin-tab px-4 py-2.5 text-xs font-bold border-b-2 border-transparent text-stone-500 hover:text-stone-800 whitespace-nowrap">Testimoni (<span id="admin-testimonial-count">0</span>)</button>
-        <button id="tab-btn-backup" type="button" class="admin-tab px-4 py-2.5 text-xs font-bold border-b-2 border-transparent text-stone-500 hover:text-stone-800 whitespace-nowrap">Backup & Reset</button>
-      </div>
-
-      <div class="flex-1 overflow-y-auto p-4 sm:p-5 custom-scrollbar bg-stone-100/50">
-
-        <div id="pane-items" class="space-y-4">
-          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
-            <div>
-              <h3 class="text-sm font-bold text-stone-900">Daftar Undangan Digital</h3>
-              <p class="text-xs text-stone-500">Tambah, ubah, dan hapus katalog tema pernikahan</p>
-            </div>
-            <button id="btn-add-item-modal" type="button" class="px-3.5 py-2 rounded-lg bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold flex items-center gap-1.5 shadow-sm active:scale-95 transition">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
-              <span>Tambah Undangan</span>
-            </button>
+<main>
+  <section id="home" class="hero">
+    <div class="container-main">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="hero-kicker">
+            <span>✦</span>
+            <span>Undangan Digital</span>
           </div>
 
-          <div class="bg-white rounded-xl border border-stone-200 shadow-sm overflow-hidden">
-            <div class="overflow-x-auto">
-              <table class="w-full text-left text-xs border-collapse">
-                <thead>
-                  <tr class="bg-stone-50 border-b border-stone-200 text-stone-600">
-                    <th class="p-3">Foto</th>
-                    <th class="p-3">Kode & Nama</th>
-                    <th class="p-3">Kategori</th>
-                    <th class="p-3">Harga</th>
-                    <th class="p-3">Status</th>
-                    <th class="p-3 text-right">Aksi</th>
-                  </tr>
-                </thead>
-                <tbody id="admin-items-tbody" class="divide-y divide-stone-100 text-stone-700"></tbody>
-              </table>
-            </div>
+          <h1 class="hero-title">
+            Cerita cintamu,
+            <span>dalam satu surat.</span>
+          </h1>
+
+          <p class="hero-description">
+            Buat momen spesial terasa lebih personal dengan undangan digital yang elegan, modern, ringan, dan nyaman dibuka dari smartphone.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#katalog" class="btn-primary">Lihat Katalog</a>
+            <a href="https://wa.me/6282323624177?text=Halo%20Tewe%20Store%2C%20saya%20ingin%20konsultasi%20undangan%20digital." target="_blank" rel="noopener" class="btn-secondary">
+              Konsultasi
+            </a>
+          </div>
+
+          <div class="hero-note">
+            Premium look · Mobile first · Fast loading
           </div>
         </div>
 
-        <div id="pane-settings" class="hidden max-w-xl mx-auto bg-white p-5 rounded-xl border border-stone-200 shadow-sm space-y-4">
-          <div>
-            <h3 class="text-sm font-bold text-stone-900">Pengaturan Tampilan & Kontak Website</h3>
-            <p class="text-xs text-stone-500">Data ini akan otomatis diperbarui di seluruh tampilan website</p>
-          </div>
-          <form id="form-site-settings" class="space-y-3">
-            <div>
-              <label class="block text-xs font-semibold text-stone-700 mb-1">Judul Website</label>
-              <input id="set-site-name" type="text" required class="w-full px-3 py-2 text-xs border border-stone-300 rounded-lg focus:border-brand-500">
-            </div>
-            <div>
-              <label class="block text-xs font-semibold text-stone-700 mb-1">URL Website Resmi</label>
-              <input id="set-site-url" type="url" required class="w-full px-3 py-2 text-xs border border-stone-300 rounded-lg focus:border-brand-500">
-            </div>
-            <div>
-              <label class="block text-xs font-semibold text-stone-700 mb-1">Nama Developer / Store</label>
-              <input id="set-dev-name" type="text" required class="w-full px-3 py-2 text-xs border border-stone-300 rounded-lg focus:border-brand-500">
-            </div>
-            <div>
-              <label class="block text-xs font-semibold text-stone-700 mb-1">Nomor WhatsApp Order & Developer</label>
-              <input id="set-wa-num" type="text" required placeholder="082323624177" class="w-full px-3 py-2 text-xs border border-stone-300 rounded-lg focus:border-brand-500">
-              <span class="text-[10px] text-stone-400">Contoh format: 082323624177</span>
-            </div>
-            <div>
-              <label class="block text-xs font-semibold text-stone-700 mb-1">Headline Utama (Hero)</label>
-              <input id="set-hero-title" type="text" required class="w-full px-3 py-2 text-xs border border-stone-300 rounded-lg focus:border-brand-500">
-            </div>
-            <div>
-              <label class="block text-xs font-semibold text-stone-700 mb-1">Deskripsi Singkat (Hero Subtitle)</label>
-              <textarea id="set-hero-sub" rows="2" class="w-full px-3 py-2 text-xs border border-stone-300 rounded-lg focus:border-brand-500"></textarea>
-            </div>
-            <div>
-              <label class="block text-xs font-semibold text-stone-700 mb-1">Teks Footer</label>
-              <input id="set-footer-desc" type="text" class="w-full px-3 py-2 text-xs border border-stone-300 rounded-lg focus:border-brand-500">
-            </div>
-            <button type="submit" class="w-full py-2.5 rounded-lg bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs shadow-sm">Simpan Perubahan Pengaturan</button>
-          </form>
-        </div>
-
-        <div id="pane-accounts" class="hidden space-y-4">
-          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
-            <div>
-              <h3 class="text-sm font-bold text-stone-900">Kelola Akun Crew</h3>
-              <p class="text-xs text-stone-500">Owner dapat membuat akun Crew, mengubah username dan kata sandi, serta mengatur hak akses CRUD.</p>
-            </div>
-            <button id="btn-add-crew-modal" type="button" class="px-3.5 py-2 rounded-lg bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold flex items-center gap-1.5 shadow-sm active:scale-95 transition">
-              <span>+ Tambah Crew</span>
-            </button>
-          </div>
-          <div class="bg-white rounded-xl border border-stone-200 shadow-sm overflow-hidden">
-            <div class="overflow-x-auto">
-              <table class="w-full text-left text-xs border-collapse min-w-[760px]">
-                <thead>
-                  <tr class="bg-stone-50 border-b border-stone-200 text-stone-600">
-                    <th class="p-3">Username</th>
-                    <th class="p-3">Peran</th>
-                    <th class="p-3">Akses CRUD Katalog</th>
-                    <th class="p-3">Akses Lain</th>
-                    <th class="p-3 text-right">Aksi</th>
-                  </tr>
-                </thead>
-                <tbody id="admin-accounts-tbody" class="divide-y divide-stone-100 text-stone-700"></tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <div id="pane-security" class="hidden max-w-sm mx-auto bg-white p-5 rounded-xl border border-stone-200 shadow-sm space-y-4">
-          <div>
-            <h3 class="text-sm font-bold text-stone-900">Akun Saya</h3>
-            <p class="text-xs text-stone-500">Semua akun dapat mengubah username dan kata sandinya sendiri.</p>
-          </div>
-          <form id="form-change-password" class="space-y-3">
-            <div>
-              <label class="block text-xs font-semibold text-stone-700 mb-1">Username Baru</label>
-              <input id="input-security-username" type="text" required minlength="1" autocomplete="username" class="w-full px-3 py-2 text-xs border border-stone-300 rounded-lg">
-            </div>
-            <div>
-              <label class="block text-xs font-semibold text-stone-700 mb-1">Sandi Saat Ini</label>
-              <input id="input-old-pass" type="password" required autocomplete="current-password" class="w-full px-3 py-2 text-xs border border-stone-300 rounded-lg">
-            </div>
-            <div>
-              <label class="block text-xs font-semibold text-stone-700 mb-1">Sandi Baru</label>
-              <input id="input-new-pass" type="password" required minlength="1" autocomplete="new-password" class="w-full px-3 py-2 text-xs border border-stone-300 rounded-lg">
-            </div>
-            <div>
-              <label class="block text-xs font-semibold text-stone-700 mb-1">Konfirmasi Sandi Baru</label>
-              <input id="input-confirm-pass" type="password" required minlength="1" autocomplete="new-password" class="w-full px-3 py-2 text-xs border border-stone-300 rounded-lg">
-            </div>
-            <div id="pass-feedback" class="hidden text-xs font-medium"></div>
-            <button type="submit" class="w-full py-2.5 rounded-lg bg-stone-900 hover:bg-black text-white font-bold text-xs">Simpan Perubahan Akun</button>
-          </form>
-        </div>
-
-        <div id="pane-testimonials" class="hidden space-y-4">
-          <div>
-            <h3 class="text-sm font-bold text-stone-900">Kelola Testimoni Customer</h3>
-            <p class="text-xs text-stone-500">Moderasi, ubah, dan hapus testimoni yang dikirim customer secara anonim.</p>
-          </div>
-          <div class="bg-white rounded-xl border border-stone-200 shadow-sm overflow-hidden">
-            <div class="overflow-x-auto">
-              <table class="w-full text-left text-xs border-collapse min-w-[720px]">
-                <thead><tr class="bg-stone-50 border-b border-stone-200 text-stone-600"><th class="p-3">Customer</th><th class="p-3">Rating</th><th class="p-3">Testimoni</th><th class="p-3">Tanggal</th><th class="p-3 text-right">Aksi</th></tr></thead>
-                <tbody id="admin-testimonials-tbody" class="divide-y divide-stone-100 text-stone-700"></tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <div id="pane-backup" class="hidden max-w-md mx-auto bg-white p-5 rounded-xl border border-stone-200 shadow-sm space-y-5">
-          <div>
-            <h3 class="text-sm font-bold text-stone-900">Backup & Pemulihan Data</h3>
-            <p class="text-xs text-stone-500">Semua data disimpan di LocalStorage peramban Anda. Anda dapat mengekspor atau memulihkannya kapan saja.</p>
-          </div>
-
-          <div class="p-3 bg-stone-50 rounded-lg border border-stone-200 space-y-2">
-            <h4 class="text-xs font-bold text-stone-800">1. Ekspor Data (Backup)</h4>
-            <p class="text-[11px] text-stone-500">Unduh seluruh file JSON berisi data produk dan pengaturan saat ini.</p>
-            <button id="btn-export-backup" type="button" class="w-full py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs rounded-lg flex items-center justify-center gap-1.5">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-              <span>Unduh File Cadangan (.json)</span>
-            </button>
-          </div>
-
-          <div class="p-3 bg-stone-50 rounded-lg border border-stone-200 space-y-2">
-            <h4 class="text-xs font-bold text-stone-800">2. Impor Data (Restore)</h4>
-            <p class="text-[11px] text-stone-500">Pulihkan data dari file JSON cadangan sebelumnya.</p>
-            <input id="input-import-file" type="file" accept=".json" class="block w-full text-xs text-stone-500 file:mr-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-stone-200 file:text-stone-700 hover:file:bg-stone-300">
-          </div>
-
-          <div class="p-3 bg-rose-50 rounded-lg border border-rose-200 space-y-2">
-            <h4 class="text-xs font-bold text-red-700">3. Reset Pabrik (Factory Defaults)</h4>
-            <p class="text-[11px] text-red-600 leading-relaxed">Mengembalikan seluruh produk dan setting ke setelan awal pabrik suratcintakita.</p>
-            <button id="btn-factory-reset" type="button" class="w-full py-2 bg-rose-600 hover:bg-rose-700 text-white font-semibold text-xs rounded-lg">Reset ke Data Semula</button>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <div id="modal-item-form" class="fixed inset-0 z-50 hidden bg-stone-900/60 flex items-end sm:items-center justify-center p-0 sm:p-4">
-    <div class="bg-white w-full sm:max-w-lg max-h-[92dvh] rounded-t-2xl sm:rounded-2xl flex flex-col overflow-hidden shadow-2xl">
-      <div class="px-4 py-3 border-b border-stone-100 flex items-center justify-between">
-        <h3 id="form-item-modal-title" class="font-bold text-sm sm:text-base text-stone-900">Tambah Undangan Baru</h3>
-        <button id="btn-close-item-form" type="button" class="p-1 text-stone-400 hover:text-stone-700">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-        </button>
-      </div>
-      <form id="form-item" class="flex-1 overflow-y-auto p-4 space-y-3 custom-scrollbar">
-        <input type="hidden" id="item-form-id">
-        <div class="grid grid-cols-2 gap-2">
-          <div>
-            <label class="block text-xs font-semibold text-stone-700 mb-1">Kode Undangan</label>
-            <input id="item-form-code" type="text" required placeholder="SCK-01" class="w-full px-3 py-2 text-xs border border-stone-300 rounded-lg uppercase">
-          </div>
-          <div>
-            <label class="block text-xs font-semibold text-stone-700 mb-1">Kategori</label>
-            <input id="item-form-cat" type="text" required list="category-suggestions" placeholder="Floral / Minimalis" class="w-full px-3 py-2 text-xs border border-stone-300 rounded-lg">
-            <datalist id="category-suggestions">
-              <option value="Floral"></option>
-              <option value="Minimalis"></option>
-              <option value="Adat"></option>
-              <option value="Islami"></option>
-              <option value="Modern"></option>
-            </datalist>
-          </div>
-        </div>
-        <div>
-          <label class="block text-xs font-semibold text-stone-700 mb-1">Nama Tema Undangan</label>
-          <input id="item-form-title" type="text" required placeholder="Contoh: Rustic Botanical Elegance" class="w-full px-3 py-2 text-xs border border-stone-300 rounded-lg">
-        </div>
-        <div class="grid grid-cols-2 gap-2">
-          <div>
-            <label class="block text-xs font-semibold text-stone-700 mb-1">Harga Promo (Rp)</label>
-            <input id="item-form-price" type="number" required min="0" placeholder="99000" class="w-full px-3 py-2 text-xs border border-stone-300 rounded-lg">
-          </div>
-          <div>
-            <label class="block text-xs font-semibold text-stone-700 mb-1">Harga Asli / Coret (Rp)</label>
-            <input id="item-form-strike" type="number" required min="0" placeholder="189000" class="w-full px-3 py-2 text-xs border border-stone-300 rounded-lg">
-          </div>
-        </div>
-        <div>
-          <label class="block text-xs font-semibold text-stone-700 mb-1">Link Preview Demo</label>
-          <input id="item-form-preview-url" type="url" required placeholder="https://suratcintakita.vercel.app/" class="w-full px-3 py-2 text-xs border border-stone-300 rounded-lg">
-        </div>
-        <div class="p-3 bg-stone-50 border border-stone-200 rounded-xl space-y-2">
-          <label class="block text-xs font-semibold text-stone-800">Foto Sampel Undangan</label>
-          <div>
-            <span class="text-[11px] text-stone-500 block mb-1">Opsi 1: URL Gambar (Google/Unsplash)</span>
-            <input id="item-form-image-url" type="url" placeholder="https://images.unsplash.com/..." class="w-full px-3 py-1.5 text-xs border border-stone-300 rounded-lg bg-white">
-          </div>
-          <div>
-            <span class="text-[11px] text-stone-500 block mb-1">Opsi 2: Unggah Foto dari Perangkat</span>
-            <input id="item-form-image-file" type="file" accept="image/*" class="block w-full text-xs text-stone-500 file:mr-2 file:py-1 file:px-2.5 file:rounded-md file:border-0 file:text-[11px] file:font-semibold file:bg-brand-50 file:text-brand-700 hover:file:bg-brand-100">
-          </div>
-          <div id="image-preview-box" class="hidden mt-2 pt-2 border-t border-stone-200">
-            <span class="text-[10px] text-stone-400 block mb-1">Pratinjau Foto:</span>
-            <img id="image-preview-element" src="" class="h-20 w-32 object-cover rounded border border-stone-300">
-          </div>
-        </div>
-        <div>
-          <label class="block text-xs font-semibold text-stone-700 mb-1">Deskripsi Singkat</label>
-          <textarea id="item-form-desc" rows="2" placeholder="Nuansa aesthetic hangat dengan dekorasi dedaunan eucalyptus..." class="w-full px-3 py-2 text-xs border border-stone-300 rounded-lg"></textarea>
-        </div>
-        <div class="flex items-center gap-4 pt-1">
-          <label class="inline-flex items-center gap-2 cursor-pointer text-xs font-medium text-stone-700">
-            <input id="item-form-is-bestseller" type="checkbox" class="w-4 h-4 rounded text-brand-600 focus:ring-brand-500">
-            <span>Tandai Best Seller</span>
-          </label>
-          <label class="inline-flex items-center gap-2 cursor-pointer text-xs font-medium text-stone-700">
-            <input id="item-form-is-new" type="checkbox" class="w-4 h-4 rounded text-brand-600 focus:ring-brand-500">
-            <span>Tandai Tema Terbaru</span>
-          </label>
-        </div>
-        <div class="pt-2 flex gap-2">
-          <button id="btn-cancel-item-form" type="button" class="flex-1 py-2 rounded-lg border border-stone-300 text-xs font-semibold text-stone-600">Batal</button>
-          <button type="submit" class="flex-1 py-2 rounded-lg bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold shadow-sm">Simpan Data</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <div id="modal-crew-form" class="fixed inset-0 z-[55] hidden bg-stone-900/60 flex items-end sm:items-center justify-center p-0 sm:p-4">
-    <div class="bg-white w-full sm:max-w-lg max-h-[92dvh] rounded-t-2xl sm:rounded-2xl flex flex-col overflow-hidden shadow-2xl">
-      <div class="px-4 py-3 border-b border-stone-100 flex items-center justify-between">
-        <div>
-          <h3 id="crew-form-modal-title" class="font-bold text-sm sm:text-base text-stone-900">Tambah Akun Crew</h3>
-          <p class="text-[10px] text-stone-500 mt-0.5">Atur kredensial dan hak akses akun Crew.</p>
-        </div>
-        <button id="btn-close-crew-form" type="button" class="p-1 text-stone-400 hover:text-stone-700">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-        </button>
-      </div>
-      <form id="form-crew" class="flex-1 overflow-y-auto p-4 space-y-4 custom-scrollbar">
-        <input type="hidden" id="crew-form-id">
-        <div>
-          <label class="block text-xs font-semibold text-stone-700 mb-1">Username Crew</label>
-          <input id="crew-form-username" type="text" required minlength="1" autocomplete="off" class="w-full px-3 py-2 text-xs border border-stone-300 rounded-lg" placeholder="contoh: crew1">
-        </div>
-        <div>
-          <label class="block text-xs font-semibold text-stone-700 mb-1">Kata Sandi</label>
-          <input id="crew-form-password" type="password" required minlength="1" autocomplete="new-password" class="w-full px-3 py-2 text-xs border border-stone-300 rounded-lg" placeholder="Masukkan kata sandi">
-        </div>
-        <div class="space-y-3">
-          <div>
-            <h4 class="text-xs font-bold text-stone-900">CRUD Katalog</h4>
-            <p class="text-[10px] text-stone-500">Atur akses baca, tambah, ubah, dan hapus katalog.</p>
-          </div>
-          <div class="grid grid-cols-2 gap-2 text-xs">
-            <label class="flex items-center gap-2 p-2 bg-stone-50 rounded-lg border border-stone-200">
-              <input id="crew-perm-items-read" type="checkbox" class="w-4 h-4 rounded text-brand-600">
-              <span>Lihat katalog</span>
-            </label>
-            <label class="flex items-center gap-2 p-2 bg-stone-50 rounded-lg border border-stone-200">
-              <input id="crew-perm-items-create" type="checkbox" class="w-4 h-4 rounded text-brand-600">
-              <span>Tambah</span>
-            </label>
-            <label class="flex items-center gap-2 p-2 bg-stone-50 rounded-lg border border-stone-200">
-              <input id="crew-perm-items-update" type="checkbox" class="w-4 h-4 rounded text-brand-600">
-              <span>Ubah</span>
-            </label>
-            <label class="flex items-center gap-2 p-2 bg-stone-50 rounded-lg border border-stone-200">
-              <input id="crew-perm-items-delete" type="checkbox" class="w-4 h-4 rounded text-brand-600">
-              <span>Hapus</span>
-            </label>
-          </div>
-        </div>
-        <div class="space-y-3">
-          <h4 class="text-xs font-bold text-stone-900">Akses Pengaturan Website</h4>
-          <div class="grid grid-cols-2 gap-2 text-xs">
-            <label class="flex items-center gap-2 p-2 bg-stone-50 rounded-lg border border-stone-200">
-              <input id="crew-perm-settings-read" type="checkbox" class="w-4 h-4 rounded text-brand-600">
-              <span>Lihat pengaturan</span>
-            </label>
-            <label class="flex items-center gap-2 p-2 bg-stone-50 rounded-lg border border-stone-200">
-              <input id="crew-perm-settings-update" type="checkbox" class="w-4 h-4 rounded text-brand-600">
-              <span>Ubah pengaturan</span>
-            </label>
-          </div>
-        </div>
-        <div class="space-y-3">
-          <h4 class="text-xs font-bold text-stone-900">Akses Backup</h4>
-          <div class="grid grid-cols-2 gap-2 text-xs">
-            <label class="flex items-center gap-2 p-2 bg-stone-50 rounded-lg border border-stone-200">
-              <input id="crew-perm-backup-read" type="checkbox" class="w-4 h-4 rounded text-brand-600">
-              <span>Lihat backup</span>
-            </label>
-            <label class="flex items-center gap-2 p-2 bg-stone-50 rounded-lg border border-stone-200">
-              <input id="crew-perm-backup-export" type="checkbox" class="w-4 h-4 rounded text-brand-600">
-              <span>Export</span>
-            </label>
-            <label class="flex items-center gap-2 p-2 bg-stone-50 rounded-lg border border-stone-200">
-              <input id="crew-perm-backup-import" type="checkbox" class="w-4 h-4 rounded text-brand-600">
-              <span>Import</span>
-            </label>
-            <label class="flex items-center gap-2 p-2 bg-stone-50 rounded-lg border border-stone-200">
-              <input id="crew-perm-backup-reset" type="checkbox" class="w-4 h-4 rounded text-brand-600">
-              <span>Reset</span>
-            </label>
-          </div>
-        </div>
-        <div class="pt-1 flex gap-2">
-          <button id="btn-cancel-crew-form" type="button" class="flex-1 py-2 rounded-lg border border-stone-300 text-xs font-semibold text-stone-600">Batal</button>
-          <button type="submit" class="flex-1 py-2 rounded-lg bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold shadow-sm">Simpan Akun Crew</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <div id="modal-testimonial-edit" class="fixed inset-0 z-[65] hidden bg-stone-900/60 flex items-end sm:items-center justify-center p-0 sm:p-4">
-    <div class="bg-white w-full sm:max-w-lg rounded-t-2xl sm:rounded-2xl p-5 shadow-xl">
-      <div class="flex items-center justify-between mb-4"><h3 class="font-bold text-sm text-stone-900">Edit Testimoni</h3><button id="btn-close-testimonial-edit" type="button" class="p-1 text-stone-400">✕</button></div>
-      <form id="form-testimonial-edit" class="space-y-3">
-        <input type="hidden" id="testimonial-edit-id">
-        <input id="testimonial-edit-name" type="text" maxlength="40" placeholder="Nama samaran" class="w-full px-3 py-2 text-xs border border-stone-300 rounded-lg">
-        <select id="testimonial-edit-rating" class="w-full px-3 py-2 text-xs border border-stone-300 rounded-lg"><option value="5">★★★★★</option><option value="4">★★★★☆</option><option value="3">★★★☆☆</option><option value="2">★★☆☆☆</option><option value="1">★☆☆☆☆</option></select>
-        <textarea id="testimonial-edit-message" rows="4" maxlength="500" required class="w-full px-3 py-2 text-xs border border-stone-300 rounded-lg"></textarea>
-        <div class="flex gap-2"><button id="btn-cancel-testimonial-edit" type="button" class="flex-1 py-2 rounded-lg border border-stone-300 text-xs font-semibold">Batal</button><button type="submit" class="flex-1 py-2 rounded-lg bg-brand-600 text-white text-xs font-bold">Simpan</button></div>
-      </form>
-    </div>
-  </div>
-
-  <div id="modal-app-popup" class="fixed inset-0 z-[70] hidden bg-stone-900/60 flex items-center justify-center p-4">
-    <div class="bg-white w-full max-w-sm rounded-2xl p-5 shadow-xl">
-      <div class="flex items-start gap-3">
-        <div id="app-popup-icon" class="w-9 h-9 rounded-full bg-rose-100 text-brand-600 flex items-center justify-center flex-shrink-0 font-bold">!</div>
-        <div class="min-w-0 flex-1">
-          <h3 id="app-popup-title" class="font-bold text-sm text-stone-900">Pemberitahuan</h3>
-          <p id="app-popup-message" class="text-xs text-stone-600 mt-1 leading-relaxed"></p>
-        </div>
-      </div>
-      <div class="mt-4 flex justify-end">
-        <button id="btn-close-app-popup" type="button" class="px-4 py-2 rounded-lg bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold">OK</button>
-      </div>
-    </div>
-  </div>
-
-  <div id="modal-confirm-popup" class="fixed inset-0 z-[75] hidden bg-stone-900/60 flex items-center justify-center p-4">
-    <div class="bg-white w-full max-w-sm rounded-2xl p-5 shadow-xl">
-      <div class="flex items-start gap-3">
-        <div class="w-9 h-9 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center flex-shrink-0 font-bold">?</div>
-        <div class="min-w-0 flex-1">
-          <h3 id="confirm-popup-title" class="font-bold text-sm text-stone-900">Konfirmasi</h3>
-          <p id="confirm-popup-message" class="text-xs text-stone-600 mt-1 leading-relaxed"></p>
-        </div>
-      </div>
-      <div class="mt-4 flex gap-2">
-        <button id="btn-confirm-cancel" type="button" class="flex-1 px-4 py-2 rounded-lg border border-stone-200 text-stone-600 text-xs font-semibold">Batal</button>
-        <button id="btn-confirm-ok" type="button" class="flex-1 px-4 py-2 rounded-lg bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold">Lanjutkan</button>
-      </div>
-    </div>
-  </div>
-
-  <div id="toast-notify" class="fixed bottom-4 right-4 z-50 transform translate-y-16 opacity-0 transition-all duration-200 pointer-events-none bg-stone-900 text-white text-xs px-4 py-2.5 rounded-full shadow-lg flex items-center gap-2 border border-stone-700">
-    <span id="toast-icon">✓</span>
-    <span id="toast-msg">Pemberitahuan</span>
-  </div>
-
-  <script>
-    const DEFAULT_SETTINGS = {
-      siteName: "suratcintakita",
-      siteUrl: "https://suratcintakita.vercel.app/",
-      devName: "Tewe Store",
-      waNumber: "082323624177",
-      heroTitle: "Bagikan Cerita Cinta Anda dengan Undangan Digital Terbaik",
-      heroSub: "Pilihan desain eksklusif, responsif mobile, audio musik otomatis, integrasi RSVP & amplop digital. Siap digunakan dalam hitungan menit.",
-      footerDesc: "Platform katalog undangan digital online kekinian, elegan, dan siap pakai."
-    };
-
-    const DEFAULT_ITEMS = [
-      {
-        id: "sck-01",
-        code: "SCK-01",
-        title: "Rustic Garden Romance",
-        category: "Floral",
-        price: 89000,
-        strikePrice: 179000,
-        image: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&auto=format&fit=crop&q=80",
-        previewUrl: "https://suratcintakita.vercel.app/",
-        isBestSeller: true,
-        isNew: false,
-        desc: "Sentuhan bunga eucalyptus lembut dan aksen kayu rustic elegan, cocok untuk tema intimate wedding."
-      },
-      {
-        id: "sck-02",
-        code: "SCK-02",
-        title: "Minimalist Soft Sand",
-        category: "Minimalis",
-        price: 79000,
-        strikePrice: 149000,
-        image: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&auto=format&fit=crop&q=80",
-        previewUrl: "https://suratcintakita.vercel.app/",
-        isBestSeller: false,
-        isNew: true,
-        desc: "Desain clean tipografi modern dengan palet warna krem pasir yang hangat dan estetik."
-      },
-      {
-        id: "sck-03",
-        code: "SCK-03",
-        title: "Royal Emerald Gold",
-        category: "Modern",
-        price: 119000,
-        strikePrice: 220000,
-        image: "https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?w=800&auto=format&fit=crop&q=80",
-        previewUrl: "https://suratcintakita.vercel.app/",
-        isBestSeller: true,
-        isNew: false,
-        desc: "Kemewahan warna hijau zamrud berpadu dengan foil emas mewah. Sangat berkelas untuk resepsi megah."
-      },
-      {
-        id: "sck-04",
-        code: "SCK-04",
-        title: "Javanese Classical Keraton",
-        category: "Adat",
-        price: 99000,
-        strikePrice: 190000,
-        image: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&auto=format&fit=crop&q=80",
-        previewUrl: "https://suratcintakita.vercel.app/",
-        isBestSeller: true,
-        isNew: false,
-        desc: "Motif batik tradisional Jawa autentik dengan tata letak sakral berbalut kesan modern."
-      },
-      {
-        id: "sck-05",
-        code: "SCK-05",
-        title: "Islamic Noor Elegance",
-        category: "Islami",
-        price: 95000,
-        strikePrice: 180000,
-        image: "https://images.unsplash.com/photo-1532712938310-34cb3982ef74?w=800&auto=format&fit=crop&q=80",
-        previewUrl: "https://suratcintakita.vercel.app/",
-        isBestSeller: false,
-        isNew: true,
-        desc: "Ornamen arabesque islami yang teduh lengkap dengan kaligrafi doa pernikahan penuh barakah."
-      },
-      {
-        id: "sck-06",
-        code: "SCK-06",
-        title: "Blushing Rose Watercolor",
-        category: "Floral",
-        price: 85000,
-        strikePrice: 165000,
-        image: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800&auto=format&fit=crop&q=80",
-        previewUrl: "https://suratcintakita.vercel.app/",
-        isBestSeller: false,
-        isNew: true,
-        desc: "Lukisan cat air mawar pastel yang manis dan romantis menyuarakan cinta tulus kedua mempelai."
-      }
-    ];
-
-    let state = {
-      settings: {},
-      items: [],
-      favorites: [],
-      testimonials: [],
-      adminPass: "admin123",
-      accounts: [],
-      currentUserId: null,
-      isSuperAdmin: false,
-      activeFilter: "all",
-      searchQuery: ""
-    };
-
-    const DEFAULT_PERMISSIONS = {
-      items: { read: true, create: true, update: true, delete: true },
-      testimonials: { read: true, create: true, update: true, delete: true },
-      settings: { read: true, update: true },
-      backup: { read: true, export: true, import: true, reset: true }
-    };
-
-    function createDefaultOwner(password = "admin123") {
-      return {
-        id: "owner",
-        username: "owner",
-        password: password || "admin123",
-        role: "owner",
-        permissions: JSON.parse(JSON.stringify(DEFAULT_PERMISSIONS))
-      };
-    }
-
-    function normalizeAccount(account) {
-      const base = account && typeof account === "object" ? account : {};
-      return {
-        id: base.id || ("crew-" + Date.now() + "-" + Math.random().toString(36).slice(2, 8)),
-        username: String(base.username || "").trim(),
-        password: String(base.password || ""),
-        role: base.role === "owner" ? "owner" : "crew",
-        permissions: {
-          items: { ...DEFAULT_PERMISSIONS.items, ...(base.permissions && base.permissions.items ? base.permissions.items : {}) },
-          testimonials: { ...DEFAULT_PERMISSIONS.testimonials, ...(base.permissions && base.permissions.testimonials ? base.permissions.testimonials : {}) },
-          settings: { ...DEFAULT_PERMISSIONS.settings, ...(base.permissions && base.permissions.settings ? base.permissions.settings : {}) },
-          backup: { ...DEFAULT_PERMISSIONS.backup, ...(base.permissions && base.permissions.backup ? base.permissions.backup : {}) }
-        }
-      };
-    }
-
-    function getCurrentUser() {
-      return state.accounts.find(account => account.id === state.currentUserId) || null;
-    }
-
-    function hasPermission(moduleName, actionName) {
-      const user = getCurrentUser();
-      if (!user) return false;
-      if (user.role === "owner") return true;
-      return !!(user.permissions && user.permissions[moduleName] && user.permissions[moduleName][actionName]);
-    }
-
-    function accountCanViewItems() {
-      return hasPermission("items", "read");
-    }
-
-    function ensureAccess(moduleName, actionName) {
-      if (!hasPermission(moduleName, actionName)) {
-        showAppPopup("Akses ditolak", "Akun Anda tidak memiliki izin untuk menggunakan fitur ini.", false);
-        return false;
-      }
-      return true;
-    }
-
-    function loadState() {
-      try {
-        const savedSettings = localStorage.getItem("sck_settings");
-        state.settings = savedSettings ? JSON.parse(savedSettings) : { ...DEFAULT_SETTINGS };
-
-        const savedItems = localStorage.getItem("sck_items");
-        state.items = savedItems ? JSON.parse(savedItems) : [ ...DEFAULT_ITEMS ];
-
-        const savedFavs = localStorage.getItem("sck_favorites");
-        state.favorites = savedFavs ? JSON.parse(savedFavs) : [];
-
-        const savedPass = localStorage.getItem("sck_admin_pass");
-        state.adminPass = savedPass || "admin123";
-
-        const savedAccounts = localStorage.getItem("sck_accounts");
-        if (savedAccounts) {
-          const parsedAccounts = JSON.parse(savedAccounts);
-          state.accounts = Array.isArray(parsedAccounts) ? parsedAccounts.map(normalizeAccount).filter(account => account.username) : [];
-        } else {
-          state.accounts = [createDefaultOwner(state.adminPass)];
-        }
-
-        const owner = state.accounts.find(account => account.role === "owner") || createDefaultOwner(state.adminPass);
-        owner.password = owner.password || state.adminPass || "admin123";
-        state.accounts = [owner, ...state.accounts.filter(account => account.id !== owner.id)];
-
-        if (!savedItems) saveItemsToStorage();
-        if (!savedSettings) saveSettingsToStorage();
-        saveAccountsToStorage();
-      } catch (e) {
-        state.settings = { ...DEFAULT_SETTINGS };
-        state.items = [ ...DEFAULT_ITEMS ];
-        state.favorites = [];
-        state.adminPass = "admin123";
-        state.accounts = [createDefaultOwner()];
-        state.currentUserId = null;
-        state.isSuperAdmin = false;
-        saveAccountsToStorage();
-      }
-    }
-
-    function saveItemsToStorage() {
-      localStorage.setItem("sck_items", JSON.stringify(state.items));
-    }
-
-    function saveSettingsToStorage() {
-      localStorage.setItem("sck_settings", JSON.stringify(state.settings));
-    }
-
-    function saveFavsToStorage() {
-      localStorage.setItem("sck_favorites", JSON.stringify(state.favorites));
-    }
-
-    function saveTestimonialsToStorage() {
-      localStorage.setItem("sck_testimonials", JSON.stringify(state.testimonials));
-    }
-
-    function escapeHtml(value) {
-      return String(value ?? "").replace(/[&<>"']/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;","":"&quot;","'":"&#039;"}[char]));
-    }
-
-    function renderTestimonials() {
-      const list = document.getElementById("testimonial-list");
-      const empty = document.getElementById("testimonial-empty");
-      if (!list || !empty) return;
-      const testimonials = Array.isArray(state.testimonials) ? state.testimonials : [];
-      empty.classList.toggle("hidden", testimonials.length > 0);
-      list.innerHTML = testimonials.slice().reverse().map(t => `
-        <article class="rounded-xl border border-stone-200 bg-stone-50 p-3">
-          <div class="flex items-center justify-between gap-2"><strong class="text-xs text-stone-800">${escapeHtml(t.name || "Customer Anonim")}</strong><span class="text-amber-500 text-xs" aria-label="${t.rating} dari 5">${"★".repeat(Number(t.rating) || 5)}${"☆".repeat(5 - (Number(t.rating) || 5))}</span></div>
-          <p class="text-xs text-stone-600 leading-relaxed mt-2 whitespace-pre-line">${escapeHtml(t.message)}</p>
-          <time class="block text-[10px] text-stone-400 mt-2">${new Date(t.createdAt || Date.now()).toLocaleDateString("id-ID")}</time>
-        </article>`).join("");
-    }
-
-    function renderAdminTestimonials() {
-      const tbody = document.getElementById("admin-testimonials-tbody");
-      const count = document.getElementById("admin-testimonial-count");
-      if (!tbody) return;
-      const testimonials = Array.isArray(state.testimonials) ? state.testimonials : [];
-      if (count) count.textContent = testimonials.length;
-      if (!testimonials.length) { tbody.innerHTML = '<tr><td colspan="5" class="p-6 text-center text-stone-400">Belum ada testimoni.</td></tr>'; return; }
-      tbody.innerHTML = testimonials.slice().reverse().map(t => `
-        <tr><td class="p-3 font-semibold">${escapeHtml(t.name || "Customer Anonim")}</td><td class="p-3 text-amber-500">${"★".repeat(Number(t.rating) || 5)}</td><td class="p-3 max-w-sm whitespace-pre-line">${escapeHtml(t.message)}</td><td class="p-3 whitespace-nowrap">${new Date(t.createdAt || Date.now()).toLocaleDateString("id-ID")}</td><td class="p-3 text-right whitespace-nowrap">${hasPermission("testimonials","update") ? `<button type="button" onclick="editTestimonial('${t.id}')" class="px-2.5 py-1 bg-stone-100 text-stone-700 rounded font-semibold text-[11px]">Edit</button>` : ""} ${hasPermission("testimonials","delete") ? `<button type="button" onclick="deleteTestimonial('${t.id}')" class="px-2.5 py-1 bg-rose-50 text-rose-600 rounded font-semibold text-[11px]">Hapus</button>` : ""}</td></tr>`).join("");
-    }
-
-    function editTestimonial(id) {
-      if (!ensureAccess("testimonials", "update")) return;
-      const t = state.testimonials.find(x => x.id === id); if (!t) return;
-      document.getElementById("testimonial-edit-id").value = t.id;
-      document.getElementById("testimonial-edit-name").value = t.name || "";
-      document.getElementById("testimonial-edit-rating").value = String(t.rating || 5);
-      document.getElementById("testimonial-edit-message").value = t.message || "";
-      document.getElementById("modal-testimonial-edit").classList.remove("hidden");
-    }
-
-    function deleteTestimonial(id) {
-      if (!ensureAccess("testimonials", "delete")) return;
-      const t = state.testimonials.find(x => x.id === id); if (!t) return;
-      showConfirmPopup("Hapus Testimoni", "Yakin ingin menghapus testimoni ini?", () => { state.testimonials = state.testimonials.filter(x => x.id !== id); saveTestimonialsToStorage(); renderTestimonials(); renderAdminTestimonials(); showToast("Testimoni berhasil dihapus"); });
-    }
-
-    function saveAdminPassToStorage() {
-      localStorage.setItem("sck_admin_pass", state.adminPass);
-    }
-
-    function saveAccountsToStorage() {
-      localStorage.setItem("sck_accounts", JSON.stringify(state.accounts));
-    }
-
-    function showAppPopup(title, message, isSuccess = true) {
-      const modal = document.getElementById("modal-app-popup");
-      const icon = document.getElementById("app-popup-icon");
-      document.getElementById("app-popup-title").textContent = title || "Pemberitahuan";
-      document.getElementById("app-popup-message").textContent = message || "";
-      icon.textContent = isSuccess ? "✓" : "!";
-      icon.className = isSuccess
-        ? "w-9 h-9 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center flex-shrink-0 font-bold"
-        : "w-9 h-9 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center flex-shrink-0 font-bold";
-      modal.classList.remove("hidden");
-    }
-
-    function closeAppPopup() {
-      document.getElementById("modal-app-popup").classList.add("hidden");
-    }
-
-    function showConfirmPopup(title, message, onConfirm) {
-      const modal = document.getElementById("modal-confirm-popup");
-      document.getElementById("confirm-popup-title").textContent = title || "Konfirmasi";
-      document.getElementById("confirm-popup-message").textContent = message || "";
-      const okBtn = document.getElementById("btn-confirm-ok");
-      okBtn.onclick = () => {
-        modal.classList.add("hidden");
-        if (typeof onConfirm === "function") onConfirm();
-      };
-      document.getElementById("btn-confirm-cancel").onclick = () => modal.classList.add("hidden");
-      modal.classList.remove("hidden");
-    }
-
-    function formatRupiah(num) {
-      return new Intl.NumberFormat("id-ID", {
-        style: "currency",
-        currency: "IDR",
-        maximumFractionDigits: 0
-      }).format(num || 0);
-    }
-
-    function getCleanWaNumber(phone) {
-      let cleaned = (phone || "").replace(/\D/g, "");
-      if (cleaned.startsWith("0")) {
-        cleaned = "62" + cleaned.substring(1);
-      }
-      return cleaned || "6282323624177";
-    }
-
-    function generateOrderWaLink(item) {
-      const wa = getCleanWaNumber(state.settings.waNumber);
-      const dev = state.settings.devName || "Tewe Store";
-      const site = state.settings.siteUrl || "https://suratcintakita.vercel.app/";
-      const message = `Halo ${dev}, saya ingin pesan Undangan Digital dari suratcintakita:\n\n*Kode Undangan:* ${item.code}\n*Tema:* ${item.title}\n*Kategori:* ${item.category}\n*Harga Promo:* ${formatRupiah(item.price)}\n*Katalog URL:* ${site}\n\nMohon info langkah pemesanan dan pengisian datanya ya. Terima kasih!`;
-      return `https://wa.me/${wa}?text=${encodeURIComponent(message)}`;
-    }
-
-    function showToast(msg, isSuccess = true) {
-      const toast = document.getElementById("toast-notify");
-      const toastMsg = document.getElementById("toast-msg");
-      const toastIcon = document.getElementById("toast-icon");
-      toastMsg.textContent = msg;
-      toastIcon.textContent = isSuccess ? "✓" : "!";
-      toastIcon.className = isSuccess ? "text-emerald-400 font-bold" : "text-rose-400 font-bold";
-      toast.classList.remove("translate-y-16", "opacity-0");
-      toast.classList.add("translate-y-0", "opacity-100");
-      clearTimeout(window._toastTimer);
-      window._toastTimer = setTimeout(() => {
-        toast.classList.remove("translate-y-0", "opacity-100");
-        toast.classList.add("translate-y-16", "opacity-0");
-      }, 2500);
-    }
-
-    function renderBrandTitle(elementId) {
-      const el = document.getElementById(elementId);
-      const name = state.settings.siteName || "";
-      if (name.toLowerCase() === "suratcintakita") {
-        el.innerHTML = `<span class="text-stone-900">surat</span><span class="text-brand-500">cinta</span><span class="text-stone-900">kita</span>`;
-      } else {
-        el.textContent = name;
-      }
-    }
-
-    function updateSiteUI() {
-      document.title = `${state.settings.siteName} - Katalog Undangan Digital Eksklusif`;
-      renderBrandTitle("nav-title");
-      renderBrandTitle("footer-brand-title");
-
-      document.getElementById("hero-heading").textContent = state.settings.heroTitle;
-      document.getElementById("hero-sub").textContent = state.settings.heroSub;
-      document.getElementById("footer-desc").textContent = state.settings.footerDesc;
-
-      const waNum = getCleanWaNumber(state.settings.waNumber);
-      const devLink = document.getElementById("dev-wa-link");
-      devLink.href = `https://wa.me/${waNum}?text=${encodeURIComponent("Halo " + state.settings.devName + ", saya menghubungi Anda dari website suratcintakita")}`;
-      devLink.innerHTML = `<span>${state.settings.devName}</span>`;
-
-      const heroWa = document.getElementById("btn-hero-wa");
-      heroWa.href = `https://wa.me/${waNum}?text=${encodeURIComponent("Halo " + state.settings.devName + ", saya tertarik konsultasi undangan digital di " + state.settings.siteName)}`;
-
-      document.getElementById("fav-counter").textContent = state.favorites.length;
-      document.getElementById("current-year").textContent = new Date().getFullYear();
-
-      const siteUrl = state.settings.siteUrl || DEFAULT_SETTINGS.siteUrl;
-      const footerUrl = document.getElementById("footer-site-url");
-      const footerUrlText = document.getElementById("footer-site-url-text");
-      if (footerUrl) footerUrl.href = siteUrl;
-      if (footerUrlText) footerUrlText.textContent = siteUrl;
-
-      const currentUser = getCurrentUser();
-      const adminButton = document.getElementById("btn-open-admin-login");
-      if (currentUser) {
-        adminButton.title = "Buka Panel Admin";
-        const label = adminButton.querySelector("span");
-        if (label) label.textContent = currentUser.role === "owner" ? "Owner" : "Crew";
-      } else {
-        adminButton.title = "Masuk Panel Admin";
-        const label = adminButton.querySelector("span");
-        if (label) label.textContent = "Admin";
-      }
-    }
-
-    function renderCatalog() {
-      const grid = document.getElementById("catalog-grid");
-      const empty = document.getElementById("empty-state");
-      const badge = document.getElementById("product-count-badge");
-
-      const query = state.searchQuery.toLowerCase().trim();
-      const filter = state.activeFilter;
-
-      const filtered = state.items.filter(item => {
-        const matchesQuery = !query ||
-          item.title.toLowerCase().includes(query) ||
-          item.code.toLowerCase().includes(query) ||
-          item.category.toLowerCase().includes(query);
-
-        if (!matchesQuery) return false;
-
-        if (filter === "all") return true;
-        if (filter === "bestseller") return !!item.isBestSeller;
-        if (filter === "new") return !!item.isNew;
-        if (filter === "favs") return state.favorites.includes(item.id);
-        return item.category.toLowerCase() === filter.toLowerCase();
-      });
-
-      badge.textContent = filtered.length;
-
-      if (filtered.length === 0) {
-        grid.innerHTML = "";
-        empty.classList.remove("hidden");
-        return;
-      }
-
-      empty.classList.add("hidden");
-
-      let html = "";
-      for (let i = 0; i < filtered.length; i++) {
-        const item = filtered[i];
-        const isFav = state.favorites.includes(item.id);
-        const discountPct = item.strikePrice && item.strikePrice > item.price
-          ? Math.round(((item.strikePrice - item.price) / item.strikePrice) * 100)
-          : 0;
-
-        html += `
-          <div class="bg-white rounded-2xl border border-stone-200/80 overflow-hidden flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow duration-200">
-            <div class="relative aspect-[3/4] bg-stone-100 overflow-hidden">
-              <img src="${item.image}" alt="${item.title}" loading="lazy" class="w-full h-full object-cover">
-
-              <div class="absolute top-2 left-2 flex flex-col gap-1 items-start">
-                ${item.isBestSeller ? '<span class="px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-amber-500 text-white shadow-sm tracking-wide">BEST SELLER</span>' : ''}
-                ${item.isNew ? '<span class="px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-brand-500 text-white shadow-sm tracking-wide">TERBARU</span>' : ''}
-                ${discountPct > 0 ? `<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-stone-900/90 text-white shadow-sm">-${discountPct}%</span>` : ''}
-              </div>
-
-              <button type="button" onclick="toggleFavorite('${item.id}', event)" class="absolute top-2 right-2 w-8 h-8 rounded-full bg-white/90 backdrop-blur-none text-stone-700 flex items-center justify-center shadow-sm active:scale-90 transition-transform duration-150" title="Simpan ke Favorit">
-                <svg class="w-4 h-4 ${isFav ? 'fill-rose-500 text-rose-500' : 'fill-none text-stone-400 stroke-current stroke-2'}" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-              </button>
-
-              <div class="absolute bottom-2 left-2">
-                <span class="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-white/95 text-stone-800 border border-stone-200/80 shadow-xs tracking-tight">#${item.code}</span>
-              </div>
-            </div>
-
-            <div class="p-3 sm:p-4 flex-1 flex flex-col justify-between">
-              <div>
-                <span class="text-[10px] font-medium text-brand-700 uppercase tracking-wider block mb-0.5">${item.category}</span>
-                <h3 class="font-serif font-bold text-xs sm:text-sm text-stone-900 line-clamp-1 leading-snug">${item.title}</h3>
-
-                <div class="mt-2 flex items-baseline gap-1.5 flex-wrap">
-                  <span class="text-xs sm:text-sm font-extrabold text-brand-600">${formatRupiah(item.price)}</span>
-                  ${item.strikePrice && item.strikePrice > item.price ? `<span class="text-[10px] sm:text-xs text-stone-400 line-through">${formatRupiah(item.strikePrice)}</span>` : ''}
+        <div class="hero-showcase">
+          <div class="phone-stage">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <div class="phone-content">
+                  <div class="phone-card">
+                    <small>THE WEDDING OF</small>
+                    <h3>Raka &amp; Aulia</h3>
+                    <p>Sabtu, 21 November 2026</p>
+                  </div>
                 </div>
               </div>
-
-              <div class="mt-3 pt-2.5 border-t border-stone-100 flex items-center gap-1.5">
-                <button type="button" onclick="openPreviewModal('${item.id}')" class="flex-1 py-1.5 sm:py-2 px-2 rounded-lg border border-stone-200 bg-stone-50 hover:bg-stone-100 text-stone-700 text-[11px] sm:text-xs font-semibold text-center active:scale-95 transition">Demo</button>
-                <a href="${generateOrderWaLink(item)}" target="_blank" class="flex-1 py-1.5 sm:py-2 px-2 rounded-lg bg-brand-600 hover:bg-brand-700 text-white text-[11px] sm:text-xs font-bold text-center active:scale-95 transition">Pesan</a>
-              </div>
             </div>
           </div>
-        `;
-      }
+        </div>
 
-      grid.innerHTML = html;
+      </div>
+    </div>
+  </section>
+
+  <section id="katalog" class="section section-soft">
+    <div class="container-main">
+      <div class="section-head">
+        <div class="section-kicker">Katalog</div>
+        <h2 class="section-title">Pilih surat cinta yang paling cocok.</h2>
+        <p class="section-desc">
+          Berbagai gaya undangan digital untuk pernikahan, lamaran, ulang tahun, dan momen spesial lainnya.
+        </p>
+      </div>
+
+      <div class="catalog-grid">
+
+        <article class="card invitation-card">
+          <div class="card-image-wrap">
+            <img
+              class="card-image"
+              src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=75"
+              alt="Undangan wedding elegant"
+              loading="lazy"
+              decoding="async"
+              width="900"
+              height="1125"
+            >
+            <div class="card-badge">Best Seller</div>
+          </div>
+          <div class="card-body">
+            <div class="card-category">Wedding</div>
+            <h3 class="card-title">Romantic Story</h3>
+            <p class="card-text">Desain lembut dengan nuansa romantis dan elegan untuk hari bahagia.</p>
+            <div class="card-footer">
+              <div class="card-price">Mulai konsultasi</div>
+              <a href="https://wa.me/6282323624177?text=Halo%20Tewe%20Store%2C%20saya%20tertarik%20dengan%20template%20Romantic%20Story." target="_blank" rel="noopener" class="btn-primary">Pilih</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card invitation-card">
+          <div class="card-image-wrap">
+            <img
+              class="card-image"
+              src="https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?auto=format&fit=crop&w=900&q=75"
+              alt="Undangan wedding classic"
+              loading="lazy"
+              decoding="async"
+              width="900"
+              height="1125"
+            >
+            <div class="card-badge">Elegant</div>
+          </div>
+          <div class="card-body">
+            <div class="card-category">Wedding</div>
+            <h3 class="card-title">Classic Love</h3>
+            <p class="card-text">Tampilan klasik dengan komposisi bersih untuk pasangan yang menyukai kesederhanaan.</p>
+            <div class="card-footer">
+              <div class="card-price">Mulai konsultasi</div>
+              <a href="https://wa.me/6282323624177?text=Halo%20Tewe%20Store%2C%20saya%20tertarik%20dengan%20template%20Classic%20Love." target="_blank" rel="noopener" class="btn-primary">Pilih</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card invitation-card">
+          <div class="card-image-wrap">
+            <img
+              class="card-image"
+              src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=900&q=75"
+              alt="Undangan wedding floral"
+              loading="lazy"
+              decoding="async"
+              width="900"
+              height="1125"
+            >
+            <div class="card-badge">Popular</div>
+          </div>
+          <div class="card-body">
+            <div class="card-category">Wedding</div>
+            <h3 class="card-title">Floral Letter</h3>
+            <p class="card-text">Perpaduan floral dan warna hangat yang memberikan nuansa manis dan berkelas.</p>
+            <div class="card-footer">
+              <div class="card-price">Mulai konsultasi</div>
+              <a href="https://wa.me/6282323624177?text=Halo%20Tewe%20Store%2C%20saya%20tertarik%20dengan%20template%20Floral%20Letter." target="_blank" rel="noopener" class="btn-primary">Pilih</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card invitation-card">
+          <div class="card-image-wrap">
+            <img
+              class="card-image"
+              src="https://images.unsplash.com/photo-1529634597503-139d3726fed5?auto=format&fit=crop&w=900&q=75"
+              alt="Undangan wedding modern"
+              loading="lazy"
+              decoding="async"
+              width="900"
+              height="1125"
+            >
+            <div class="card-badge">Modern</div>
+          </div>
+          <div class="card-body">
+            <div class="card-category">Wedding</div>
+            <h3 class="card-title">Modern Letter</h3>
+            <p class="card-text">Layout minimalis dan modern dengan fokus utama pada foto dan cerita pasangan.</p>
+            <div class="card-footer">
+              <div class="card-price">Mulai konsultasi</div>
+              <a href="https://wa.me/6282323624177?text=Halo%20Tewe%20Store%2C%20saya%20tertarik%20dengan%20template%20Modern%20Letter." target="_blank" rel="noopener" class="btn-primary">Pilih</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card invitation-card">
+          <div class="card-image-wrap">
+            <img
+              class="card-image"
+              src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=900&q=75"
+              alt="Undangan wedding timeless"
+              loading="lazy"
+              decoding="async"
+              width="900"
+              height="1125"
+            >
+            <div class="card-badge">Premium</div>
+          </div>
+          <div class="card-body">
+            <div class="card-category">Wedding</div>
+            <h3 class="card-title">Timeless Romance</h3>
+            <p class="card-text">Konsep elegan yang dirancang agar tetap cantik, sederhana, dan tidak cepat terasa usang.</p>
+            <div class="card-footer">
+              <div class="card-price">Mulai konsultasi</div>
+              <a href="https://wa.me/6282323624177?text=Halo%20Tewe%20Store%2C%20saya%20tertarik%20dengan%20template%20Timeless%20Romance." target="_blank" rel="noopener" class="btn-primary">Pilih</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card invitation-card">
+          <div class="card-image-wrap">
+            <img
+              class="card-image"
+              src="https://images.unsplash.com/photo-1494955870715-979ca4f13bf0?auto=format&fit=crop&w=900&q=75"
+              alt="Undangan wedding intimate"
+              loading="lazy"
+              decoding="async"
+              width="900"
+              height="1125"
+            >
+            <div class="card-badge">New</div>
+          </div>
+          <div class="card-body">
+            <div class="card-category">Special Moment</div>
+            <h3 class="card-title">Intimate Story</h3>
+            <p class="card-text">Cocok untuk acara sederhana dengan tampilan personal dan hangat.</p>
+            <div class="card-footer">
+              <div class="card-price">Mulai konsultasi</div>
+              <a href="https://wa.me/6282323624177?text=Halo%20Tewe%20Store%2C%20saya%20tertarik%20dengan%20template%20Intimate%20Story." target="_blank" rel="noopener" class="btn-primary">Pilih</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="keunggulan" class="section">
+    <div class="container-main">
+      <div class="section-head">
+        <div class="section-kicker">Kenapa Kami</div>
+        <h2 class="section-title">Dibuat untuk dibuka dengan nyaman.</h2>
+        <p class="section-desc">
+          Bukan hanya cantik. Undangan dibuat dengan perhatian pada pengalaman pengguna terutama di perangkat mobile.
+        </p>
+      </div>
+
+      <div class="features">
+
+        <div class="feature-card">
+          <div class="feature-icon">♡</div>
+          <h3 class="feature-title">Elegan</h3>
+          <p class="feature-text">Visual dirancang agar tetap terasa premium tanpa berlebihan.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">↗</div>
+          <h3 class="feature-title">Responsif</h3>
+          <p class="feature-text">Tampilan menyesuaikan smartphone, tablet, hingga desktop.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3 class="feature-title">Ringan</h3>
+          <p class="feature-text">Struktur dibuat sederhana agar loading dan scrolling tetap nyaman.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">∞</div>
+          <h3 class="feature-title">Interaktif</h3>
+          <p class="feature-text">Bisa dilengkapi galeri, maps, RSVP, countdown, musik dan fitur lainnya.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="cara-order" class="section section-soft">
+    <div class="container-main">
+      <div class="section-head">
+        <div class="section-kicker">Cara Order</div>
+        <h2 class="section-title">Semudah menulis surat.</h2>
+        <p class="section-desc">
+          Proses dibuat sederhana supaya kamu bisa fokus pada persiapan acara.
+        </p>
+      </div>
+
+      <div class="steps">
+
+        <div class="step">
+          <div class="step-number">1</div>
+          <div>
+            <h3 class="step-title">Pilih desain</h3>
+            <p class="step-text">Tentukan template yang paling sesuai dengan konsep acaramu.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">2</div>
+          <div>
+            <h3 class="step-title">Kirim data</h3>
+            <p class="step-text">Kirim nama, tanggal, lokasi, foto, teks dan kebutuhan lainnya.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">3</div>
+          <div>
+            <h3 class="step-title">Proses desain</h3>
+            <p class="step-text">Undangan disiapkan sesuai data dan konsep yang telah dipilih.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">4</div>
+          <div>
+            <h3 class="step-title">Bagikan</h3>
+            <p class="step-text">Setelah selesai, undangan siap dibagikan kepada keluarga dan teman.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mt-8">
+        <div class="cta">
+          <h3 class="cta-title">Siap membuat cerita sendiri?</h3>
+          <p class="cta-text">
+            Konsultasikan desain undangan digitalmu bersama Tewe Store melalui WhatsApp.
+          </p>
+          <div class="cta-actions">
+            <a href="https://wa.me/6282323624177?text=Halo%20Tewe%20Store%2C%20saya%20ingin%20order%20undangan%20digital%20di%20suratcintakita." target="_blank" rel="noopener" class="btn-primary">
+              Chat WhatsApp
+            </a>
+            <a href="#katalog" class="btn-secondary">
+              Lihat Template
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontak" class="section">
+    <div class="container-main">
+      <div class="contact-grid">
+
+        <div class="contact-card">
+          <div class="contact-label">Developer</div>
+          <h2 class="contact-title">Tewe Store</h2>
+          <p class="contact-info">
+            Developer dan penyedia undangan digital untuk berbagai kebutuhan acara spesial.
+          </p>
+          <a href="https://wa.me/6282323624177?text=Halo%20Tewe%20Store%2C%20saya%20ingin%20bertanya%20tentang%20undangan%20digital." target="_blank" rel="noopener" class="contact-link">
+            Chat Tewe Store
+            <span>→</span>
+          </a>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-label">Order</div>
+          <h2 class="contact-title">0823 2362 4177</h2>
+          <p class="contact-info">
+            Hubungi nomor WhatsApp ini untuk pemesanan, konsultasi desain, dan kebutuhan undangan digital.
+          </p>
+          <a href="https://wa.me/6282323624177?text=Halo%20Tewe%20Store%2C%20saya%20ingin%20order%20undangan%20digital." target="_blank" rel="noopener" class="contact-link">
+            Order via WhatsApp
+            <span>→</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container-main">
+    <div class="footer-inner">
+      <div class="footer-brand">suratcintakita</div>
+      <div class="footer-text">https://suratcintakita.netlify.app/</div>
+      <div class="footer-text">
+        © <span id="year"></span> suratcintakita · Developed by
+        <a href="https://wa.me/6282323624177?text=Halo%20Tewe%20Store" target="_blank" rel="noopener" class="footer-developer">Tewe Store</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="mobile-order">
+  <a href="https://wa.me/6282323624177?text=Halo%20Tewe%20Store%2C%20saya%20ingin%20order%20undangan%20digital%20di%20suratcintakita." target="_blank" rel="noopener">
+    <span>♡</span>
+    <span>Order Undangan Digital</span>
+  </a>
+</div>
+
+<script>
+(() => {
+  const yearEl = document.getElementById('year');
+  const header = document.getElementById('siteHeader');
+
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  let lastY = window.scrollY;
+  let ticking = false;
+
+  const updateHeader = () => {
+    const currentY = window.scrollY;
+
+    if (currentY <= 20) {
+      header.style.transform = 'translate3d(0,0,0)';
+    } else if (currentY > lastY && currentY > 120) {
+      header.style.transform = 'translate3d(0,-100px,0)';
+    } else {
+      header.style.transform = 'translate3d(0,0,0)';
     }
 
-    function toggleFavorite(id, e) {
-      if (e) e.stopPropagation();
-      const index = state.favorites.indexOf(id);
-      if (index > -1) {
-        state.favorites.splice(index, 1);
-        showToast("Dihapus dari favorit");
-      } else {
-        state.favorites.push(id);
-        showToast("Ditambahkan ke favorit!");
-      }
-      saveFavsToStorage();
-      updateSiteUI();
-      renderCatalog();
+    lastY = currentY;
+    ticking = false;
+  };
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateHeader);
+      ticking = true;
     }
+  }, { passive: true });
 
-    function openPreviewModal(id) {
-      const item = state.items.find(x => x.id === id);
-      if (!item) return;
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', event => {
+      const targetId = link.getAttribute('href');
 
-      document.getElementById("modal-prev-code").textContent = "#" + item.code;
-      document.getElementById("modal-prev-title").textContent = item.title;
-      document.getElementById("modal-prev-category").textContent = item.category;
-      document.getElementById("modal-prev-image").src = item.image;
-      document.getElementById("modal-prev-price").textContent = formatRupiah(item.price);
+      if (!targetId || targetId === '#') return;
 
-      const strikeEl = document.getElementById("modal-prev-strike");
-      if (item.strikePrice && item.strikePrice > item.price) {
-        strikeEl.textContent = formatRupiah(item.strikePrice);
-        strikeEl.classList.remove("hidden");
-      } else {
-        strikeEl.classList.add("hidden");
-      }
+      const target = document.querySelector(targetId);
+      if (!target) return;
 
-      document.getElementById("modal-prev-desc").textContent = item.desc || "Katalog undangan online responsif dengan fitur maps, RSVP, hitung mundur, galeri, dan ucapan online.";
-      document.getElementById("modal-prev-demo-link").href = item.previewUrl || state.settings.siteUrl;
-      document.getElementById("modal-prev-wa-btn").href = generateOrderWaLink(item);
+      event.preventDefault();
 
-      document.getElementById("modal-preview").classList.remove("hidden");
-    }
-
-    function closePreviewModal() {
-      document.getElementById("modal-preview").classList.add("hidden");
-    }
-
-    function openAdminDashboard() {
-      const user = getCurrentUser();
-      if (!user) return;
-      document.getElementById("admin-item-count").textContent = state.items.length;
-      document.getElementById("admin-panel-title").textContent = user.role === "owner" ? "Panel Owner" : "Panel Crew";
-      document.getElementById("admin-panel-user").textContent = `${user.username} • ${user.role === "owner" ? "Super Admin" : "Crew"}`;
-
-      const tabs = {
-        items: document.getElementById("tab-btn-items"),
-        settings: document.getElementById("tab-btn-settings"),
-        accounts: document.getElementById("tab-btn-accounts"),
-        testimonials: document.getElementById("tab-btn-testimonials"),
-        security: document.getElementById("tab-btn-security"),
-        testimonials: document.getElementById("tab-btn-testimonials"),
-        backup: document.getElementById("tab-btn-backup")
-      };
-      tabs.items.classList.toggle("hidden", !hasPermission("items", "read"));
-      tabs.settings.classList.toggle("hidden", !(hasPermission("settings", "read") || hasPermission("settings", "update")));
-      tabs.accounts.classList.toggle("hidden", user.role !== "owner");
-      tabs.testimonials.classList.toggle("hidden", !hasPermission("testimonials", "read"));
-      tabs.backup.classList.toggle("hidden", !hasPermission("backup", "read"));
-      tabs.security.classList.remove("hidden");
-
-      const addButton = document.getElementById("btn-add-item-modal");
-      addButton.classList.toggle("hidden", !hasPermission("items", "create"));
-
-      populateSettingsForm();
-      renderAdminItemsTable();
-      renderAdminAccountsTable();
-      const exportButton = document.getElementById("btn-export-backup");
-      const importInput = document.getElementById("input-import-file");
-      const resetButton = document.getElementById("btn-factory-reset");
-      exportButton.disabled = !hasPermission("backup", "export");
-      importInput.disabled = !hasPermission("backup", "import");
-      resetButton.disabled = !hasPermission("backup", "reset");
-      const firstTab = user.role === "owner" || hasPermission("items", "read") ? "items"
-        : (hasPermission("settings", "read") || hasPermission("settings", "update")) ? "settings"
-        : user.role === "owner" ? "accounts"
-        : hasPermission("testimonials", "read") ? "testimonials"
-        : hasPermission("backup", "read") ? "backup"
-        : "security";
-      switchAdminTab(firstTab);
-      document.getElementById("modal-admin-dashboard").classList.remove("hidden");
-    }
-
-    function closeAdminDashboard() {
-      document.getElementById("modal-admin-dashboard").classList.add("hidden");
-    }
-
-    function switchAdminTab(tabName) {
-      const panes = {
-        items: document.getElementById("pane-items"),
-        settings: document.getElementById("pane-settings"),
-        accounts: document.getElementById("pane-accounts"),
-        testimonials: document.getElementById("pane-testimonials"),
-        security: document.getElementById("pane-security"),
-        backup: document.getElementById("pane-backup")
-      };
-      const tabs = {
-        items: document.getElementById("tab-btn-items"),
-        settings: document.getElementById("tab-btn-settings"),
-        accounts: document.getElementById("tab-btn-accounts"),
-        testimonials: document.getElementById("tab-btn-testimonials"),
-        security: document.getElementById("tab-btn-security"),
-        testimonials: document.getElementById("tab-btn-testimonials"),
-        backup: document.getElementById("tab-btn-backup")
-      };
-
-      const user = getCurrentUser();
-      const tabVisible = {
-        items: !!user && hasPermission("items", "read"),
-        settings: !!user && (hasPermission("settings", "read") || hasPermission("settings", "update")),
-        accounts: !!user && user.role === "owner",
-        testimonials: !!user && hasPermission("testimonials", "read"),
-        security: !!user,
-        backup: !!user && hasPermission("backup", "read")
-      };
-      Object.keys(panes).forEach(k => {
-        if (k === tabName && tabVisible[k]) {
-          panes[k].classList.remove("hidden");
-        } else {
-          panes[k].classList.add("hidden");
-        }
-        tabs[k].classList.remove("hidden", "border-brand-600", "text-brand-600", "border-transparent", "text-stone-500");
-        if (!tabVisible[k]) tabs[k].classList.add("hidden");
-        else if (k === tabName && tabVisible[k]) tabs[k].classList.add("border-brand-600", "text-brand-600");
-        else tabs[k].classList.add("border-transparent", "text-stone-500");
-        if (k !== "accounts") tabs[k].classList.add("whitespace-nowrap");
+      target.scrollIntoView({
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+        block: 'start'
       });
-    }
-
-    function renderAdminItemsTable() {
-      const tbody = document.getElementById("admin-items-tbody");
-      if (!accountCanViewItems()) {
-        tbody.innerHTML = `<tr><td colspan="6" class="p-6 text-center text-stone-400">Akun ini tidak memiliki izin melihat katalog.</td></tr>`;
-        return;
-      }
-      document.getElementById("admin-item-count").textContent = state.items.length;
-
-      if (state.items.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="6" class="p-6 text-center text-stone-400">Belum ada tema undangan. Silakan tambahkan.</td></tr>`;
-        return;
-      }
-
-      let rows = "";
-      for (let i = 0; i < state.items.length; i++) {
-        const item = state.items[i];
-        rows += `
-          <tr class="hover:bg-stone-50/80 transition-colors">
-            <td class="p-3">
-              <img src="${item.image}" alt="${item.title}" class="w-10 h-12 object-cover rounded border border-stone-200">
-            </td>
-            <td class="p-3">
-              <div class="font-bold text-stone-900">${item.title}</div>
-              <div class="font-mono text-[11px] text-stone-400">#${item.code}</div>
-            </td>
-            <td class="p-3">
-              <span class="px-2 py-0.5 rounded-full text-[10px] bg-stone-100 text-stone-700 font-semibold">${item.category}</span>
-            </td>
-            <td class="p-3 whitespace-nowrap">
-              <div class="font-bold text-brand-600">${formatRupiah(item.price)}</div>
-              ${item.strikePrice ? `<div class="text-[10px] text-stone-400 line-through">${formatRupiah(item.strikePrice)}</div>` : ''}
-            </td>
-            <td class="p-3 whitespace-nowrap">
-              <div class="flex flex-col gap-0.5">
-                ${item.isBestSeller ? '<span class="text-[9px] font-bold text-amber-600">★ BEST SELLER</span>' : ''}
-                ${item.isNew ? '<span class="text-[9px] font-bold text-brand-600">● TERBARU</span>' : ''}
-              </div>
-            </td>
-            <td class="p-3 text-right whitespace-nowrap">
-              <div class="flex items-center justify-end gap-1.5">
-                ${hasPermission("items", "update") ? `<button type="button" onclick="editItem('${item.id}')" class="px-2.5 py-1 bg-stone-100 hover:bg-stone-200 text-stone-700 rounded font-semibold text-[11px]">Edit</button>` : ""}
-                ${hasPermission("items", "create") ? `<button type="button" onclick="duplicateItem('${item.id}')" class="px-2.5 py-1 bg-brand-50 hover:bg-brand-100 text-brand-700 rounded font-semibold text-[11px]">Duplikat</button>` : ""}
-                ${hasPermission("items", "delete") ? `<button type="button" onclick="deleteItem('${item.id}')" class="px-2.5 py-1 bg-rose-50 hover:bg-rose-100 text-rose-600 rounded font-semibold text-[11px]">Hapus</button>` : ""}
-              </div>
-            </td>
-          </tr>
-        `;
-      }
-      tbody.innerHTML = rows;
-    }
-
-    function openItemForm(item = null) {
-      if (item ? !ensureAccess("items", "update") : !ensureAccess("items", "create")) return;
-      const form = document.getElementById("form-item");
-      form.reset();
-      document.getElementById("image-preview-box").classList.add("hidden");
-
-      if (item) {
-        document.getElementById("form-item-modal-title").textContent = "Ubah Undangan";
-        document.getElementById("item-form-id").value = item.id;
-        document.getElementById("item-form-code").value = item.code;
-        document.getElementById("item-form-cat").value = item.category;
-        document.getElementById("item-form-title").value = item.title;
-        document.getElementById("item-form-price").value = item.price;
-        document.getElementById("item-form-strike").value = item.strikePrice || "";
-        document.getElementById("item-form-preview-url").value = item.previewUrl || "";
-        document.getElementById("item-form-image-url").value = item.image && !item.image.startsWith("data:") ? item.image : "";
-        document.getElementById("item-form-desc").value = item.desc || "";
-        document.getElementById("item-form-is-bestseller").checked = !!item.isBestSeller;
-        document.getElementById("item-form-is-new").checked = !!item.isNew;
-
-        if (item.image) {
-          const prevImg = document.getElementById("image-preview-element");
-          prevImg.src = item.image;
-          document.getElementById("image-preview-box").classList.remove("hidden");
-        }
-      } else {
-        document.getElementById("form-item-modal-title").textContent = "Tambah Undangan Baru";
-        document.getElementById("item-form-id").value = "";
-        document.getElementById("item-form-code").value = "SCK-" + String(state.items.length + 1).padStart(2, "0");
-        document.getElementById("item-form-preview-url").value = state.settings.siteUrl;
-      }
-
-      document.getElementById("modal-item-form").classList.remove("hidden");
-    }
-
-    function closeItemForm() {
-      document.getElementById("modal-item-form").classList.add("hidden");
-    }
-
-    function editItem(id) {
-      if (!ensureAccess("items", "update")) return;
-      const item = state.items.find(x => x.id === id);
-      if (item) openItemForm(item);
-    }
-
-    function duplicateItem(id) {
-      if (!ensureAccess("items", "create")) return;
-      const item = state.items.find(x => x.id === id);
-      if (!item) return;
-
-      const baseCode = (item.code || "SCK").replace(/[^A-Z0-9-]/gi, "").toUpperCase();
-      let newCode = "";
-      const numberedMatch = baseCode.match(/^(.*?)-?(\d+)$/);
-
-      if (numberedMatch) {
-        const prefix = numberedMatch[1].replace(/-+$/, "");
-        let number = parseInt(numberedMatch[2], 10) + 1;
-        newCode = `${prefix}-${String(number).padStart(2, "0")}`;
-        while (state.items.some(existing => existing.code.toLowerCase() === newCode.toLowerCase())) {
-          number += 1;
-          newCode = `${prefix}-${String(number).padStart(2, "0")}`;
-        }
-      } else {
-        newCode = `${baseCode}-COPY`;
-        let suffix = 2;
-        while (state.items.some(existing => existing.code.toLowerCase() === newCode.toLowerCase())) {
-          newCode = `${baseCode}-COPY-${suffix++}`;
-        }
-      }
-
-      const copy = {
-        ...item,
-        id: "sck-" + Date.now() + "-" + Math.random().toString(36).slice(2, 8),
-        code: newCode,
-        title: `${item.title} (Duplikat)`,
-        isBestSeller: false,
-        isNew: false
-      };
-
-      state.items.unshift(copy);
-      saveItemsToStorage();
-      renderAdminItemsTable();
-      renderCatalog();
-      updateSiteUI();
-      showToast("Undangan berhasil diduplikat!");
-    }
-
-    function deleteItem(id) {
-      if (!ensureAccess("items", "delete")) return;
-      const item = state.items.find(x => x.id === id);
-      if (!item) return;
-      showConfirmPopup("Hapus Undangan", `Yakin ingin menghapus undangan "${item.title}" (${item.code})?`, () => {
-        state.items = state.items.filter(x => x.id !== id);
-        state.favorites = state.favorites.filter(favId => favId !== id);
-        saveItemsToStorage();
-        saveFavsToStorage();
-        renderAdminItemsTable();
-        renderCatalog();
-        updateSiteUI();
-        showToast("Undangan berhasil dihapus");
-      });
-    }
-
-    function getDefaultCrewPermissions() {
-      return {
-        items: { read: true, create: false, update: false, delete: false },
-        testimonials: { read: true, create: false, update: false, delete: false },
-        settings: { read: false, update: false },
-        backup: { read: false, export: false, import: false, reset: false }
-      };
-    }
-
-    function getCrewById(id) {
-      return state.accounts.find(account => account.id === id && account.role === "crew");
-    }
-
-    function openCrewForm(crew = null) {
-      if (!getCurrentUser() || getCurrentUser().role !== "owner") {
-        showAppPopup("Akses ditolak", "Hanya Owner yang dapat mengelola akun Crew.", false);
-        return;
-      }
-      const form = document.getElementById("form-crew");
-      form.reset();
-      document.getElementById("crew-form-id").value = "";
-      const permissions = crew ? crew.permissions : getDefaultCrewPermissions();
-      document.getElementById("crew-form-modal-title").textContent = crew ? "Ubah Akun Crew" : "Tambah Akun Crew";
-      document.getElementById("crew-form-username").value = crew ? crew.username : "";
-      document.getElementById("crew-form-password").value = crew ? crew.password : "";
-      document.getElementById("crew-perm-items-read").checked = !!permissions.items.read;
-      document.getElementById("crew-perm-items-create").checked = !!permissions.items.create;
-      document.getElementById("crew-perm-items-update").checked = !!permissions.items.update;
-      document.getElementById("crew-perm-items-delete").checked = !!permissions.items.delete;
-      document.getElementById("crew-perm-settings-read").checked = !!permissions.settings.read;
-      document.getElementById("crew-perm-settings-update").checked = !!permissions.settings.update;
-      document.getElementById("crew-perm-backup-read").checked = !!permissions.backup.read;
-      document.getElementById("crew-perm-backup-export").checked = !!permissions.backup.export;
-      document.getElementById("crew-perm-backup-import").checked = !!permissions.backup.import;
-      document.getElementById("crew-perm-backup-reset").checked = !!permissions.backup.reset;
-      document.getElementById("modal-crew-form").classList.remove("hidden");
-    }
-
-    function closeCrewForm() {
-      document.getElementById("modal-crew-form").classList.add("hidden");
-    }
-
-    function renderAdminAccountsTable() {
-      const tbody = document.getElementById("admin-accounts-tbody");
-      if (!tbody) return;
-      const crews = state.accounts.filter(account => account.role === "crew");
-      if (!crews.length) {
-        tbody.innerHTML = `<tr><td colspan="5" class="p-6 text-center text-stone-400">Belum ada akun Crew. Tambahkan akun Crew untuk membagikan akses panel.</td></tr>`;
-        return;
-      }
-      tbody.innerHTML = crews.map(crew => {
-        const itemCrud = ["read","create","update","delete"].filter(key => crew.permissions.items[key]).map(key => key === "read" ? "Lihat" : key === "create" ? "Tambah" : key === "update" ? "Ubah" : "Hapus");
-        const other = [];
-        if (crew.permissions.settings.read) other.push("Lihat Setting");
-        if (crew.permissions.settings.update) other.push("Ubah Setting");
-        if (crew.permissions.backup.read) other.push("Lihat Backup");
-        if (crew.permissions.backup.export) other.push("Export");
-        if (crew.permissions.backup.import) other.push("Import");
-        if (crew.permissions.backup.reset) other.push("Reset");
-        return `
-          <tr class="hover:bg-stone-50/80 transition-colors">
-            <td class="p-3 font-bold text-stone-900">${crew.username}</td>
-            <td class="p-3"><span class="px-2 py-0.5 rounded-full bg-brand-50 text-brand-700 font-semibold">Crew</span></td>
-            <td class="p-3"><div class="flex flex-wrap gap-1">${itemCrud.length ? itemCrud.map(x => `<span class="px-1.5 py-0.5 rounded bg-stone-100 text-stone-600 text-[10px]">${x}</span>`).join("") : '<span class="text-stone-400">Tidak ada</span>'}</div></td>
-            <td class="p-3"><div class="flex flex-wrap gap-1">${other.length ? other.map(x => `<span class="px-1.5 py-0.5 rounded bg-stone-100 text-stone-600 text-[10px]">${x}</span>`).join("") : '<span class="text-stone-400">Tidak ada</span>'}</div></td>
-            <td class="p-3 text-right whitespace-nowrap">
-              <button type="button" onclick="editCrew('${crew.id}')" class="px-2.5 py-1 bg-stone-100 hover:bg-stone-200 text-stone-700 rounded font-semibold text-[11px]">Edit</button>
-              <button type="button" onclick="deleteCrew('${crew.id}')" class="px-2.5 py-1 bg-rose-50 hover:bg-rose-100 text-rose-600 rounded font-semibold text-[11px]">Hapus</button>
-            </td>
-          </tr>
-        `;
-      }).join("");
-    }
-
-    function editCrew(id) {
-      if (!getCurrentUser() || getCurrentUser().role !== "owner") {
-        showAppPopup("Akses ditolak", "Hanya Owner yang dapat mengubah akun Crew.", false);
-        return;
-      }
-      const crew = getCrewById(id);
-      if (crew) openCrewForm(crew);
-    }
-
-    function deleteCrew(id) {
-      if (!getCurrentUser() || getCurrentUser().role !== "owner") {
-        showAppPopup("Akses ditolak", "Hanya Owner yang dapat menghapus akun Crew.", false);
-        return;
-      }
-      const crew = getCrewById(id);
-      if (!crew) return;
-      showConfirmPopup("Hapus Akun Crew", `Yakin ingin menghapus akun Crew "${crew.username}"?`, () => {
-        state.accounts = state.accounts.filter(account => account.id !== id);
-        saveAccountsToStorage();
-        renderAdminAccountsTable();
-        showToast("Akun Crew berhasil dihapus");
-      });
-    }
-
-    function populateSettingsForm() {
-      document.getElementById("set-site-name").value = state.settings.siteName || "";
-      document.getElementById("set-site-url").value = state.settings.siteUrl || "";
-      document.getElementById("set-dev-name").value = state.settings.devName || "";
-      document.getElementById("set-wa-num").value = state.settings.waNumber || "";
-      document.getElementById("set-hero-title").value = state.settings.heroTitle || "";
-      document.getElementById("set-hero-sub").value = state.settings.heroSub || "";
-      document.getElementById("set-footer-desc").value = state.settings.footerDesc || "";
-      const settingsForm = document.getElementById("form-site-settings");
-      const settingsCanUpdate = hasPermission("settings", "update");
-      settingsForm.querySelectorAll("input, textarea, button").forEach(el => {
-        el.disabled = !settingsCanUpdate;
-      });
-      const user = getCurrentUser();
-      const usernameField = document.getElementById("input-security-username");
-      if (user && usernameField) usernameField.value = user.username;
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-      loadState();
-      updateSiteUI();
-      renderCatalog();
-      renderTestimonials();
-
-      document.getElementById("btn-close-app-popup").addEventListener("click", closeAppPopup);
-      document.getElementById("modal-app-popup").addEventListener("click", (e) => {
-        if (e.target.id === "modal-app-popup") closeAppPopup();
-      });
-      document.getElementById("modal-confirm-popup").addEventListener("click", (e) => {
-        if (e.target.id === "modal-confirm-popup") document.getElementById("modal-confirm-popup").classList.add("hidden");
-      });
-
-      const searchInput = document.getElementById("search-input");
-      const searchClear = document.getElementById("search-clear");
-
-      searchInput.addEventListener("input", (e) => {
-        state.searchQuery = e.target.value;
-        if (state.searchQuery.length > 0) {
-          searchClear.classList.remove("hidden");
-        } else {
-          searchClear.classList.add("hidden");
-        }
-        renderCatalog();
-      }, { passive: true });
-
-      searchClear.addEventListener("click", () => {
-        searchInput.value = "";
-        state.searchQuery = "";
-        searchClear.classList.add("hidden");
-        renderCatalog();
-      });
-
-      const filterTabs = document.querySelectorAll(".filter-tab");
-      filterTabs.forEach(tab => {
-        tab.addEventListener("click", () => {
-          filterTabs.forEach(t => {
-            t.className = "filter-tab flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white text-stone-600 border border-stone-200 hover:bg-stone-50 transition duration-150";
-          });
-          tab.className = "filter-tab flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-brand-600 text-white shadow-sm border border-brand-600 transition duration-150";
-          state.activeFilter = tab.getAttribute("data-filter");
-          renderCatalog();
-        });
-      });
-
-      document.getElementById("btn-show-favs").addEventListener("click", () => {
-        const favTab = document.querySelector('[data-filter="favs"]');
-        if (favTab) favTab.click();
-      });
-
-      document.getElementById("btn-reset-filters").addEventListener("click", () => {
-        searchInput.value = "";
-        state.searchQuery = "";
-        searchClear.classList.add("hidden");
-        const allTab = document.querySelector('[data-filter="all"]');
-        if (allTab) allTab.click();
-      });
-
-      document.getElementById("form-testimonial").addEventListener("submit", (e) => {
-        e.preventDefault();
-        const message = document.getElementById("testimonial-message").value.trim();
-        if (!message) return;
-        state.testimonials.push({ id: "testimonial-" + Date.now() + "-" + Math.random().toString(36).slice(2, 8), name: document.getElementById("testimonial-name").value.trim() || "Customer Anonim", rating: Math.min(5, Math.max(1, Number(document.getElementById("testimonial-rating").value) || 5)), message, createdAt: new Date().toISOString() });
-        saveTestimonialsToStorage();
-        renderTestimonials();
-        renderAdminTestimonials();
-        e.target.reset();
-        showToast("Terima kasih, testimoni berhasil dikirim!");
-      });
-
-      document.getElementById("btn-close-testimonial-edit").addEventListener("click", () => document.getElementById("modal-testimonial-edit").classList.add("hidden"));
-      document.getElementById("btn-cancel-testimonial-edit").addEventListener("click", () => document.getElementById("modal-testimonial-edit").classList.add("hidden"));
-      document.getElementById("form-testimonial-edit").addEventListener("submit", (e) => {
-        e.preventDefault();
-        if (!ensureAccess("testimonials", "update")) return;
-        const id = document.getElementById("testimonial-edit-id").value;
-        const t = state.testimonials.find(x => x.id === id); if (!t) return;
-        t.name = document.getElementById("testimonial-edit-name").value.trim() || "Customer Anonim";
-        t.rating = Math.min(5, Math.max(1, Number(document.getElementById("testimonial-edit-rating").value) || 5));
-        t.message = document.getElementById("testimonial-edit-message").value.trim();
-        saveTestimonialsToStorage(); renderTestimonials(); renderAdminTestimonials();
-        document.getElementById("modal-testimonial-edit").classList.add("hidden"); showToast("Testimoni berhasil diperbarui");
-      });
-
-      document.getElementById("tab-btn-testimonials").addEventListener("click", () => { if (ensureAccess("testimonials", "read")) switchAdminTab("testimonials"); });
-
-      document.getElementById("btn-close-preview").addEventListener("click", closePreviewModal);
-      document.getElementById("modal-preview").addEventListener("click", (e) => {
-        if (e.target.id === "modal-preview") closePreviewModal();
-      });
-
-      const loginModal = document.getElementById("modal-admin-login");
-      const loginForm = document.getElementById("form-admin-login");
-      const loginErr = document.getElementById("login-error-msg");
-
-      document.getElementById("btn-open-admin-login").addEventListener("click", () => {
-        if (state.currentUserId) {
-          openAdminDashboard();
-        } else {
-          loginErr.classList.add("hidden");
-          document.getElementById("input-admin-username").value = "";
-          document.getElementById("input-admin-pass").value = "";
-          loginModal.classList.remove("hidden");
-          setTimeout(() => document.getElementById("input-admin-username").focus(), 0);
-        }
-      });
-
-      document.getElementById("btn-cancel-admin-login").addEventListener("click", () => {
-        loginModal.classList.add("hidden");
-      });
-
-      loginForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const enteredUsername = document.getElementById("input-admin-username").value.trim();
-        const enteredPass = document.getElementById("input-admin-pass").value;
-        const account = state.accounts.find(user => user.username.toLowerCase() === enteredUsername.toLowerCase() && user.password === enteredPass);
-        if (account) {
-          state.currentUserId = account.id;
-          state.isSuperAdmin = account.role === "owner";
-          loginModal.classList.add("hidden");
-          openAdminDashboard();
-          showToast(`Berhasil masuk sebagai ${account.role === "owner" ? "Owner" : "Crew"}!`);
-        } else {
-          loginErr.classList.remove("hidden");
-        }
-      });
-
-      document.getElementById("btn-logout-admin").addEventListener("click", () => {
-        state.isSuperAdmin = false;
-        state.currentUserId = null;
-        closeAdminDashboard();
-        updateSiteUI();
-        showToast("Telah keluar dari panel admin");
-      });
-
-      document.getElementById("btn-close-admin-dash").addEventListener("click", closeAdminDashboard);
-
-      document.getElementById("tab-btn-items").addEventListener("click", () => {
-        if (ensureAccess("items", "read")) switchAdminTab("items");
-      });
-      document.getElementById("tab-btn-settings").addEventListener("click", () => {
-        if (hasPermission("settings", "read") || hasPermission("settings", "update")) switchAdminTab("settings");
-        else showAppPopup("Akses ditolak", "Akun Anda tidak memiliki akses pengaturan website.", false);
-      });
-      document.getElementById("tab-btn-accounts").addEventListener("click", () => {
-        if (getCurrentUser() && getCurrentUser().role === "owner") switchAdminTab("accounts");
-        else showAppPopup("Akses ditolak", "Hanya Owner yang dapat mengelola akun Crew.", false);
-      });
-      document.getElementById("tab-btn-security").addEventListener("click", () => switchAdminTab("security"));
-      document.getElementById("tab-btn-backup").addEventListener("click", () => {
-        if (ensureAccess("backup", "read")) switchAdminTab("backup");
-      });
-
-      document.getElementById("btn-add-item-modal").addEventListener("click", () => openItemForm(null));
-      document.getElementById("btn-close-item-form").addEventListener("click", closeItemForm);
-      document.getElementById("btn-cancel-item-form").addEventListener("click", closeItemForm);
-
-      document.getElementById("btn-add-crew-modal").addEventListener("click", () => openCrewForm());
-      document.getElementById("btn-close-crew-form").addEventListener("click", closeCrewForm);
-      document.getElementById("btn-cancel-crew-form").addEventListener("click", closeCrewForm);
-      document.getElementById("modal-crew-form").addEventListener("click", (e) => {
-        if (e.target.id === "modal-crew-form") closeCrewForm();
-      });
-
-      document.getElementById("form-crew").addEventListener("submit", (e) => {
-        e.preventDefault();
-        if (!getCurrentUser() || getCurrentUser().role !== "owner") {
-          showAppPopup("Akses ditolak", "Hanya Owner yang dapat menyimpan akun Crew.", false);
-          return;
-        }
-        const id = document.getElementById("crew-form-id").value;
-        const username = document.getElementById("crew-form-username").value.trim();
-        const password = document.getElementById("crew-form-password").value;
-        if (!username || !password) {
-          showAppPopup("Data belum lengkap", "Username dan kata sandi Crew wajib diisi.", false);
-          return;
-        }
-        const duplicate = state.accounts.find(account => account.id !== id && account.username.toLowerCase() === username.toLowerCase());
-        if (duplicate) {
-          showAppPopup("Username sudah digunakan", "Gunakan username yang berbeda untuk akun Crew ini.", false);
-          return;
-        }
-        const permissions = {
-          items: {
-            read: document.getElementById("crew-perm-items-read").checked,
-            create: document.getElementById("crew-perm-items-create").checked,
-            update: document.getElementById("crew-perm-items-update").checked,
-            delete: document.getElementById("crew-perm-items-delete").checked
-          },
-          settings: {
-            read: document.getElementById("crew-perm-settings-read").checked,
-            update: document.getElementById("crew-perm-settings-update").checked
-          },
-          backup: {
-            read: document.getElementById("crew-perm-backup-read").checked,
-            export: document.getElementById("crew-perm-backup-export").checked,
-            import: document.getElementById("crew-perm-backup-import").checked,
-            reset: document.getElementById("crew-perm-backup-reset").checked
-          }
-        };
-        if (id) {
-          const crew = getCrewById(id);
-          if (crew) {
-            crew.username = username;
-            crew.password = password;
-            crew.permissions = permissions;
-          }
-          showToast("Akun Crew berhasil diperbarui");
-        } else {
-          state.accounts.push({
-            id: "crew-" + Date.now() + "-" + Math.random().toString(36).slice(2, 8),
-            username,
-            password,
-            role: "crew",
-            permissions
-          });
-          showToast("Akun Crew berhasil dibuat");
-        }
-        saveAccountsToStorage();
-        renderAdminAccountsTable();
-        closeCrewForm();
-      });
-
-      const fileInput = document.getElementById("item-form-image-file");
-      fileInput.addEventListener("change", (e) => {
-        const file = e.target.files[0];
-        if (file) {
-          const reader = new FileReader();
-          reader.onload = (evt) => {
-            const previewBox = document.getElementById("image-preview-box");
-            const previewImg = document.getElementById("image-preview-element");
-            previewImg.src = evt.target.result;
-            previewBox.classList.remove("hidden");
-          };
-          reader.readAsDataURL(file);
-        }
-      });
-
-      const urlInput = document.getElementById("item-form-image-url");
-      urlInput.addEventListener("input", (e) => {
-        if (e.target.value.startsWith("http")) {
-          const previewBox = document.getElementById("image-preview-box");
-          const previewImg = document.getElementById("image-preview-element");
-          previewImg.src = e.target.value;
-          previewBox.classList.remove("hidden");
-        }
-      });
-
-      document.getElementById("form-item").addEventListener("submit", (e) => {
-        e.preventDefault();
-        const id = document.getElementById("item-form-id").value;
-        if (id ? !ensureAccess("items", "update") : !ensureAccess("items", "create")) return;
-        const code = document.getElementById("item-form-code").value.trim().toUpperCase();
-        const title = document.getElementById("item-form-title").value.trim();
-        const category = document.getElementById("item-form-cat").value.trim();
-        const price = parseFloat(document.getElementById("item-form-price").value) || 0;
-        const strikePrice = parseFloat(document.getElementById("item-form-strike").value) || 0;
-        const previewUrl = document.getElementById("item-form-preview-url").value.trim() || state.settings.siteUrl;
-        const desc = document.getElementById("item-form-desc").value.trim();
-        const isBestSeller = document.getElementById("item-form-is-bestseller").checked;
-        const isNew = document.getElementById("item-form-is-new").checked;
-
-        let image = document.getElementById("item-form-image-url").value.trim();
-        const previewImg = document.getElementById("image-preview-element");
-        if (previewImg.src && !document.getElementById("image-preview-box").classList.contains("hidden")) {
-          image = previewImg.src;
-        }
-        if (!image) {
-          image = "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&auto=format&fit=crop&q=80";
-        }
-
-        if (id) {
-          const index = state.items.findIndex(x => x.id === id);
-          if (index > -1) {
-            state.items[index] = {
-              ...state.items[index],
-              code,
-              title,
-              category,
-              price,
-              strikePrice,
-              previewUrl,
-              desc,
-              isBestSeller,
-              isNew,
-              image
-            };
-            showToast("Data undangan diperbarui!");
-          }
-        } else {
-          const newItem = {
-            id: "sck-" + Date.now(),
-            code,
-            title,
-            category,
-            price,
-            strikePrice,
-            previewUrl,
-            desc,
-            isBestSeller,
-            isNew,
-            image
-          };
-          state.items.unshift(newItem);
-          showToast("Undangan baru berhasil ditambahkan!");
-        }
-
-        saveItemsToStorage();
-        renderAdminItemsTable();
-        renderCatalog();
-        closeItemForm();
-      });
-
-      document.getElementById("form-site-settings").addEventListener("submit", (e) => {
-        e.preventDefault();
-        if (!ensureAccess("settings", "update")) return;
-        state.settings.siteName = document.getElementById("set-site-name").value.trim();
-        state.settings.siteUrl = document.getElementById("set-site-url").value.trim();
-        state.settings.devName = document.getElementById("set-dev-name").value.trim();
-        state.settings.waNumber = document.getElementById("set-wa-num").value.trim();
-        state.settings.heroTitle = document.getElementById("set-hero-title").value.trim();
-        state.settings.heroSub = document.getElementById("set-hero-sub").value.trim();
-        state.settings.footerDesc = document.getElementById("set-footer-desc").value.trim();
-
-        saveSettingsToStorage();
-        updateSiteUI();
-        renderCatalog();
-        showToast("Pengaturan website tersimpan!");
-      });
-
-      document.getElementById("form-change-password").addEventListener("submit", (e) => {
-        e.preventDefault();
-        const user = getCurrentUser();
-        if (!user) return;
-        const username = document.getElementById("input-security-username").value.trim();
-        const oldPass = document.getElementById("input-old-pass").value;
-        const newPass = document.getElementById("input-new-pass").value;
-        const confPass = document.getElementById("input-confirm-pass").value;
-        const feedback = document.getElementById("pass-feedback");
-
-        if (!username) {
-          feedback.textContent = "Username wajib diisi.";
-          feedback.className = "text-xs font-medium text-red-600 block";
-          return;
-        }
-        const duplicate = state.accounts.find(account => account.id !== user.id && account.username.toLowerCase() === username.toLowerCase());
-        if (duplicate) {
-          feedback.textContent = "Username sudah digunakan akun lain.";
-          feedback.className = "text-xs font-medium text-red-600 block";
-          return;
-        }
-        if (oldPass !== user.password) {
-          feedback.textContent = "Sandi saat ini tidak cocok.";
-          feedback.className = "text-xs font-medium text-red-600 block";
-          return;
-        }
-        if (!newPass) {
-          feedback.textContent = "Sandi baru wajib diisi.";
-          feedback.className = "text-xs font-medium text-red-600 block";
-          return;
-        }
-        if (newPass !== confPass) {
-          feedback.textContent = "Konfirmasi sandi baru tidak sama.";
-          feedback.className = "text-xs font-medium text-red-600 block";
-          return;
-        }
-
-        user.username = username;
-        user.password = newPass;
-        if (user.role === "owner") state.adminPass = newPass;
-        saveAccountsToStorage();
-        saveAdminPassToStorage();
-        updateSiteUI();
-        document.getElementById("form-change-password").reset();
-        document.getElementById("input-security-username").value = user.username;
-        feedback.textContent = "Perubahan akun berhasil disimpan.";
-        feedback.className = "text-xs font-medium text-emerald-600 block";
-        document.getElementById("admin-panel-user").textContent = `${user.username} • ${user.role === "owner" ? "Super Admin" : "Crew"}`;
-        showAppPopup("Akun berhasil diperbarui", "Username dan kata sandi akun Anda sudah berhasil diperbarui.");
-      });
-
-      document.getElementById("btn-export-backup").addEventListener("click", () => {
-        if (!ensureAccess("backup", "export")) return;
-        const currentUser = getCurrentUser();
-        const backupData = {
-          version: "2.0",
-          exportDate: new Date().toISOString(),
-          settings: state.settings,
-          items: state.items,
-          favorites: state.favorites,
-          testimonials: state.testimonials
-        };
-        if (currentUser && currentUser.role === "owner") {
-          backupData.adminPass = state.adminPass;
-          backupData.accounts = state.accounts;
-        }
-        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(backupData, null, 2));
-        const dlAnchor = document.createElement("a");
-        dlAnchor.setAttribute("href", dataStr);
-        dlAnchor.setAttribute("download", `suratcintakita_backup_${new Date().toISOString().slice(0, 10)}.json`);
-        document.body.appendChild(dlAnchor);
-        dlAnchor.click();
-        dlAnchor.remove();
-        showToast("File backup berhasil diunduh!");
-      });
-
-      document.getElementById("input-import-file").addEventListener("change", (e) => {
-        if (!ensureAccess("backup", "import")) {
-          e.target.value = "";
-          return;
-        }
-        const file = e.target.files[0];
-        if (!file) return;
-        const reader = new FileReader();
-        reader.onload = (event) => {
-          try {
-            const data = JSON.parse(event.target.result);
-            if (data.items && data.settings) {
-              state.items = data.items;
-              state.settings = data.settings;
-              state.favorites = Array.isArray(data.favorites) ? data.favorites : [];
-              const currentUser = getCurrentUser();
-              if (currentUser && currentUser.role === "owner" && Array.isArray(data.accounts) && data.accounts.length) {
-                state.accounts = data.accounts.map(normalizeAccount).filter(account => account.username);
-                const importedOwner = state.accounts.find(account => account.role === "owner");
-                state.adminPass = importedOwner ? importedOwner.password : (data.adminPass || state.adminPass);
-                state.currentUserId = null;
-                state.isSuperAdmin = false;
-                saveAdminPassToStorage();
-                saveAccountsToStorage();
-              }
-              saveItemsToStorage();
-              saveSettingsToStorage();
-              saveFavsToStorage();
-              if (currentUser && currentUser.role === "owner") {
-                saveAdminPassToStorage();
-                saveAccountsToStorage();
-              }
-              closeAdminDashboard();
-              updateSiteUI();
-              renderCatalog();
-              showAppPopup("Import berhasil", currentUser && currentUser.role === "owner"
-                ? "Seluruh data backup termasuk akun dan hak akses berhasil dipulihkan. Silakan login kembali."
-                : "Data katalog, pengaturan, dan favorit berhasil dipulihkan. Data akun tetap dipertahankan.");
-            } else {
-              showAppPopup("Format backup tidak sesuai", "File JSON tidak berisi data katalog dan pengaturan yang diperlukan.", false);
-            }
-          } catch (err) {
-            showAppPopup("Import gagal", "Gagal membaca file JSON backup.", false);
-          }
-        };
-        reader.readAsText(file);
-        e.target.value = "";
-      });
-
-      document.getElementById("btn-factory-reset").addEventListener("click", () => {
-        if (!ensureAccess("backup", "reset")) return;
-        showConfirmPopup("Reset Pabrik", "PERINGATAN: Seluruh katalog, pengaturan, favorit, akun Crew, dan sandi admin akan dikembalikan ke setelan bawaan.", () => {
-          localStorage.removeItem("sck_items");
-          localStorage.removeItem("sck_settings");
-          localStorage.removeItem("sck_favorites");
-          localStorage.removeItem("sck_admin_pass");
-          localStorage.removeItem("sck_accounts");
-          state.currentUserId = null;
-          state.isSuperAdmin = false;
-          loadState();
-          updateSiteUI();
-          renderCatalog();
-          closeAdminDashboard();
-          showAppPopup("Reset berhasil", "Data berhasil direset ke setelan awal pabrik. Login default Owner adalah username `owner` dengan kata sandi `admin123`.");
-        });
-      });
-
     });
-  </script>
+  });
+
+  if ('connection' in navigator) {
+    const connection = navigator.connection;
+    if (connection && (connection.saveData || /2g/.test(connection.effectiveType))) {
+      document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+        img.setAttribute('loading', 'lazy');
+      });
+    }
+  }
+})();
+</script>
+
 </body>
 </html>
