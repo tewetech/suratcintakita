@@ -1,1155 +1,293 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="dark">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#fffaf7">
-<meta name="description" content="suratcintakita - Katalog undangan digital elegan, modern, ringan dan responsif.">
-<title>suratcintakita — Undangan Digital</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Story X | Tewe Tech</title>
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/tewetech/favicon/refs/heads/main/tewe.png">
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
-tailwind.config = {
-  theme: {
-    extend: {
-      fontFamily: {
-        sans: ['Plus Jakarta Sans', 'sans-serif'],
-        serif: ['Playfair Display', 'serif'],
-        script: ['Great Vibes', 'cursive']
-      },
-      colors: {
-        rose: {
-          50: '#fff7f8',
-          100: '#ffedf0',
-          200: '#fbd5dc',
-          300: '#f6b7c4',
-          400: '#ed91a4',
-          500: '#df7088',
-          600: '#cc506d',
-          700: '#ad3d59',
-          800: '#8f354c',
-          900: '#793242'
-        }
-      }
+    tailwind.config = {
+        darkMode: 'class',
     }
-  }
-}
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#fffaf7;
-  --surface:#ffffff;
-  --text:#392b2e;
-  --muted:#866f74;
-  --accent:#c95f77;
-  --accent-dark:#a9455f;
-  --line:rgba(110,72,81,.10);
-  --radius:24px;
-}
-*{
-  box-sizing:border-box;
-}
-html{
-  scroll-behavior:smooth;
-  -webkit-text-size-adjust:100%;
-}
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-  font-family:'Plus Jakarta Sans',sans-serif;
-  overflow-x:hidden;
-  text-rendering:optimizeLegibility;
-  -webkit-font-smoothing:antialiased;
-}
-img{
-  display:block;
-  max-width:100%;
-}
-button,a{
-  -webkit-tap-highlight-color:transparent;
-}
-button{
-  font:inherit;
-}
-::selection{
-  background:#f5c8d1;
-  color:#4a2830;
-}
-.container-main{
-  width:min(1180px,calc(100% - 32px));
-  margin-inline:auto;
-}
-.header-shell{
-  position:fixed;
-  left:0;
-  right:0;
-  top:0;
-  z-index:50;
-  transition:transform .28s ease,background-color .28s ease,border-color .28s ease;
-}
-.header-inner{
-  width:min(1180px,calc(100% - 24px));
-  margin:10px auto 0;
-  min-height:64px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  border:1px solid rgba(110,72,81,.08);
-  border-radius:20px;
-  background:rgba(255,250,247,.94);
-}
-.header-brand{
-  min-width:0;
-}
-.brand-title{
-  font-family:'Playfair Display',serif;
-  font-size:20px;
-  line-height:1;
-  font-weight:700;
-  letter-spacing:-.03em;
-  color:#4a3036;
-}
-.brand-url{
-  margin-top:4px;
-  font-size:9px;
-  line-height:1;
-  color:#9f858b;
-  white-space:nowrap;
-}
-.nav-link{
-  color:#735c62;
-  font-size:13px;
-  font-weight:600;
-  transition:color .2s ease;
-}
-.nav-link:hover{
-  color:var(--accent-dark);
-}
-.btn-primary,
-.btn-secondary{
-  min-height:44px;
-  padding:0 18px;
-  border-radius:999px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  font-size:13px;
-  font-weight:700;
-  transition:transform .2s ease,background-color .2s ease,color .2s ease,border-color .2s ease;
-  will-change:transform;
-}
-.btn-primary{
-  color:white;
-  background:var(--accent);
-}
-.btn-primary:hover{
-  background:var(--accent-dark);
-}
-.btn-secondary{
-  color:#6e535a;
-  border:1px solid rgba(110,72,81,.12);
-  background:#fff;
-}
-.btn-primary:active,
-.btn-secondary:active{
-  transform:scale(.97);
-}
-.hero{
-  position:relative;
-  min-height:100svh;
-  padding-top:130px;
-  padding-bottom:48px;
-  display:flex;
-  align-items:center;
-  overflow:hidden;
-}
-.hero::before{
-  content:"";
-  position:absolute;
-  width:340px;
-  height:340px;
-  left:-170px;
-  top:90px;
-  border-radius:50%;
-  background:rgba(237,145,164,.16);
-  pointer-events:none;
-}
-.hero::after{
-  content:"";
-  position:absolute;
-  width:260px;
-  height:260px;
-  right:-130px;
-  bottom:20px;
-  border-radius:50%;
-  background:rgba(216,170,124,.12);
-  pointer-events:none;
-}
-.hero-grid{
-  position:relative;
-  z-index:1;
-  display:grid;
-  gap:30px;
-}
-.hero-copy{
-  text-align:center;
-}
-.hero-kicker{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:8px 12px;
-  border:1px solid rgba(201,95,119,.14);
-  border-radius:999px;
-  color:#b45e72;
-  background:rgba(255,255,255,.72);
-  font-size:10px;
-  font-weight:800;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-}
-.hero-title{
-  margin-top:18px;
-  font-family:'Playfair Display',serif;
-  font-size:clamp(43px,12vw,76px);
-  line-height:.98;
-  letter-spacing:-.045em;
-  font-weight:600;
-  color:#4c3439;
-}
-.hero-title span{
-  display:block;
-  color:var(--accent);
-  font-family:'Great Vibes',cursive;
-  font-size:1.15em;
-  font-weight:400;
-  letter-spacing:0;
-  margin-top:3px;
-}
-.hero-description{
-  max-width:540px;
-  margin:20px auto 0;
-  color:var(--muted);
-  font-size:14px;
-  line-height:1.8;
-}
-.hero-actions{
-  margin-top:25px;
-  display:flex;
-  flex-wrap:wrap;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-}
-.hero-note{
-  margin-top:18px;
-  color:#a1888d;
-  font-size:11px;
-}
-.hero-showcase{
-  position:relative;
-}
-.phone-stage{
-  width:min(100%,340px);
-  margin-inline:auto;
-  position:relative;
-}
-.phone-frame{
-  position:relative;
-  padding:8px;
-  border-radius:34px;
-  background:#2f2024;
-  box-shadow:0 22px 60px rgba(75,43,50,.16);
-}
-.phone-screen{
-  overflow:hidden;
-  position:relative;
-  min-height:460px;
-  aspect-ratio:9/17;
-  border-radius:27px;
-  background:
-    linear-gradient(180deg,rgba(62,25,36,.10),rgba(62,25,36,.46)),
-    url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=75");
-  background-size:cover;
-  background-position:center;
-}
-.phone-content{
-  position:absolute;
-  inset:0;
-  display:flex;
-  align-items:flex-end;
-  justify-content:center;
-  padding:30px 20px;
-  text-align:center;
-}
-.phone-card{
-  width:100%;
-  padding:22px 16px;
-  border-radius:22px;
-  background:rgba(255,250,247,.94);
-}
-.phone-card small{
-  font-size:9px;
-  letter-spacing:.18em;
-  font-weight:800;
-  color:#9e747d;
-}
-.phone-card h3{
-  margin-top:8px;
-  font-family:'Great Vibes',cursive;
-  font-size:42px;
-  font-weight:400;
-  line-height:1;
-  color:#9f455d;
-}
-.phone-card p{
-  margin-top:8px;
-  color:#816a70;
-  font-family:'Playfair Display',serif;
-  font-size:12px;
-}
-.section{
-  position:relative;
-  padding:76px 0;
-}
-.section-soft{
-  background:#fff4f5;
-}
-.section-head{
-  text-align:center;
-  max-width:680px;
-  margin-inline:auto;
-}
-.section-kicker{
-  font-size:10px;
-  text-transform:uppercase;
-  letter-spacing:.2em;
-  font-weight:800;
-  color:#b35c71;
-}
-.section-title{
-  margin-top:10px;
-  font-family:'Playfair Display',serif;
-  font-size:clamp(30px,7vw,48px);
-  line-height:1.1;
-  letter-spacing:-.035em;
-  color:#4a3238;
-}
-.section-desc{
-  margin-top:14px;
-  color:#877075;
-  font-size:13px;
-  line-height:1.75;
-}
-.catalog-grid{
-  margin-top:38px;
-  display:grid;
-  grid-template-columns:1fr;
-  gap:18px;
-}
-.card{
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  overflow:hidden;
-}
-.invitation-card{
-  display:flex;
-  flex-direction:column;
-}
-.card-image-wrap{
-  position:relative;
-  aspect-ratio:4/5;
-  overflow:hidden;
-  background:#f5e9e9;
-}
-.card-image{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:transform .5s ease;
-}
-.invitation-card:hover .card-image{
-  transform:scale(1.025);
-}
-.card-badge{
-  position:absolute;
-  top:12px;
-  left:12px;
-  padding:7px 10px;
-  border-radius:999px;
-  background:rgba(255,255,255,.94);
-  color:#8d5360;
-  font-size:9px;
-  line-height:1;
-  font-weight:800;
-}
-.card-body{
-  padding:18px;
-}
-.card-category{
-  color:#ba6177;
-  font-size:9px;
-  font-weight:800;
-  text-transform:uppercase;
-  letter-spacing:.16em;
-}
-.card-title{
-  margin-top:7px;
-  font-family:'Playfair Display',serif;
-  font-size:23px;
-  line-height:1.15;
-  color:#483137;
-}
-.card-text{
-  margin-top:8px;
-  color:#887278;
-  font-size:12px;
-  line-height:1.65;
-}
-.card-footer{
-  margin-top:16px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-}
-.card-price{
-  color:#8d505f;
-  font-size:11px;
-  font-weight:800;
-}
-.features{
-  margin-top:38px;
-  display:grid;
-  grid-template-columns:1fr;
-  gap:14px;
-}
-.feature-card{
-  padding:22px;
-  border:1px solid var(--line);
-  border-radius:22px;
-  background:#fff;
-}
-.feature-icon{
-  width:44px;
-  height:44px;
-  border-radius:15px;
-  display:grid;
-  place-items:center;
-  background:#fff0f2;
-  color:#c46077;
-  font-size:18px;
-}
-.feature-title{
-  margin-top:15px;
-  font-family:'Playfair Display',serif;
-  font-size:20px;
-  color:#493238;
-}
-.feature-text{
-  margin-top:7px;
-  color:#877176;
-  font-size:12px;
-  line-height:1.7;
-}
-.steps{
-  margin-top:38px;
-  display:grid;
-  grid-template-columns:1fr;
-  gap:14px;
-  counter-reset:step;
-}
-.step{
-  display:flex;
-  gap:15px;
-  padding:20px;
-  border-radius:22px;
-  border:1px solid var(--line);
-  background:#fff;
-}
-.step-number{
-  flex:none;
-  width:44px;
-  height:44px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  background:#fff0f2;
-  color:#b35468;
-  font-family:'Playfair Display',serif;
-  font-size:18px;
-}
-.step-title{
-  font-family:'Playfair Display',serif;
-  font-size:18px;
-  color:#4b343a;
-}
-.step-text{
-  margin-top:5px;
-  color:#8b757a;
-  font-size:12px;
-  line-height:1.6;
-}
-.cta{
-  padding:28px;
-  border-radius:30px;
-  background:
-    linear-gradient(145deg,#fff0f2,#fff9f5);
-  border:1px solid rgba(201,95,119,.10);
-  text-align:center;
-}
-.cta-title{
-  font-family:'Playfair Display',serif;
-  font-size:31px;
-  line-height:1.1;
-  color:#493238;
-}
-.cta-text{
-  max-width:550px;
-  margin:12px auto 0;
-  color:#846d73;
-  font-size:13px;
-  line-height:1.7;
-}
-.cta-actions{
-  margin-top:20px;
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:10px;
-}
-.contact-grid{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:18px;
-}
-.contact-card{
-  padding:24px;
-  border:1px solid var(--line);
-  border-radius:24px;
-  background:#fff;
-}
-.contact-label{
-  font-size:10px;
-  text-transform:uppercase;
-  letter-spacing:.16em;
-  font-weight:800;
-  color:#b35e72;
-}
-.contact-title{
-  margin-top:9px;
-  font-family:'Playfair Display',serif;
-  font-size:25px;
-  color:#4a3339;
-}
-.contact-info{
-  margin-top:8px;
-  color:#836d73;
-  font-size:13px;
-  line-height:1.7;
-}
-.contact-link{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  margin-top:17px;
-  color:#ae4d67;
-  font-size:12px;
-  font-weight:800;
-}
-.footer{
-  padding:28px 0 36px;
-  border-top:1px solid var(--line);
-}
-.footer-inner{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  text-align:center;
-}
-.footer-brand{
-  font-family:'Playfair Display',serif;
-  font-size:20px;
-  color:#4a3339;
-}
-.footer-text{
-  color:#927b80;
-  font-size:11px;
-  line-height:1.6;
-}
-.footer-developer{
-  color:#ad526a;
-  font-weight:800;
-}
-.mobile-order{
-  position:fixed;
-  left:14px;
-  right:14px;
-  bottom:14px;
-  z-index:45;
-  display:block;
-}
-.mobile-order a{
-  width:100%;
-  min-height:52px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:9px;
-  border-radius:18px;
-  background:#b95069;
-  color:#fff;
-  font-size:13px;
-  font-weight:800;
-}
-.mobile-space{
-  height:82px;
-}
-@media (min-width:640px){
-  .container-main{
-    width:min(1180px,calc(100% - 48px));
-  }
-  .catalog-grid{
-    grid-template-columns:repeat(2,1fr);
-    gap:20px;
-  }
-  .features{
-    grid-template-columns:repeat(2,1fr);
-  }
-  .steps{
-    grid-template-columns:repeat(2,1fr);
-  }
-  .contact-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-}
-@media (min-width:900px){
-  .header-inner{
-    min-height:68px;
-    margin-top:14px;
-    width:min(1180px,calc(100% - 48px));
-    padding:0 10px 0 18px;
-  }
-  .header-nav{
-    display:flex;
-  }
-  .mobile-order,
-  .mobile-space{
-    display:none;
-  }
-  .hero{
-    padding-top:110px;
-  }
-  .hero-grid{
-    grid-template-columns:minmax(0,1fr) minmax(340px,460px);
-    align-items:center;
-    gap:60px;
-  }
-  .hero-copy{
-    text-align:left;
-  }
-  .hero-description{
-    margin-left:0;
-    margin-right:0;
-  }
-  .hero-actions{
-    justify-content:flex-start;
-  }
-  .phone-stage{
-    width:min(100%,390px);
-  }
-  .catalog-grid{
-    grid-template-columns:repeat(3,1fr);
-    gap:22px;
-  }
-  .features{
-    grid-template-columns:repeat(4,1fr);
-  }
-  .steps{
-    grid-template-columns:repeat(4,1fr);
-  }
-  .contact-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-}
-@media (max-width:899px){
-  .header-nav{
-    display:none;
-  }
-}
-@media (prefers-reduced-motion:reduce){
-  html{
-    scroll-behavior:auto;
-  }
-  *,
-  *::before,
-  *::after{
-    animation-duration:.001ms !important;
-    animation-iteration-count:1 !important;
-    transition-duration:.001ms !important;
-  }
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(180deg, #ffffff 0%, #29b6d3 100%);
+    background-attachment: fixed;
+    margin: 0;
+}
+.canvas-font {
+    font-family: 'Noto Sans TC', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+::-webkit-scrollbar {
+    width: 4px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(21, 94, 117, 0.2);
+    border-radius: 10px;
+}
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+.shimmer-box {
+    position: relative;
+    overflow: hidden;
+}
+.shimmer-box::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+    animation: shimmer 3s infinite;
+    pointer-events: none;
+    z-index: 10;
+}
+.glass-panel {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.custom-shadow {
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+.high-res-img {
+    image-rendering: high-quality;
+    image-rendering: -webkit-optimize-contrast;
 }
 </style>
 </head>
-<body>
+<body class="flex items-center justify-center min-h-screen p-4 transition-colors duration-300">
 
-<header id="siteHeader" class="header-shell">
-  <div class="header-inner">
-    <a href="#home" class="header-brand">
-      <div class="brand-title">suratcintakita</div>
-      <div class="brand-url">suratcintakita.netlify.app</div>
-    </a>
+<button id="btnToggleTheme" class="fixed top-6 right-6 w-12 h-12 bg-white/70 text-[#155e75] rounded-2xl border border-white shadow-sm flex items-center justify-center backdrop-blur-md z-40 transition-all hover:bg-white hover:scale-105 active:scale-95">
+    <svg id="iconSun" class="w-6 h-6 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+    <svg id="iconMoon" class="w-6 h-6 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+</button>
 
-    <nav class="header-nav items-center gap-7">
-      <a href="#katalog" class="nav-link">Katalog</a>
-      <a href="#keunggulan" class="nav-link">Keunggulan</a>
-      <a href="#cara-order" class="nav-link">Cara Order</a>
-      <a href="#kontak" class="nav-link">Kontak</a>
-    </nav>
-
-    <a href="https://wa.me/6282323624177?text=Halo%20Tewe%20Store%2C%20saya%20ingin%20order%20undangan%20digital." target="_blank" rel="noopener" class="btn-primary">
-      Order Sekarang
-    </a>
-  </div>
-</header>
-
-<main>
-  <section id="home" class="hero">
-    <div class="container-main">
-      <div class="hero-grid">
-        <div class="hero-copy">
-          <div class="hero-kicker">
-            <span>✦</span>
-            <span>Undangan Digital</span>
-          </div>
-
-          <h1 class="hero-title">
-            Cerita cintamu,
-            <span>dalam satu surat.</span>
-          </h1>
-
-          <p class="hero-description">
-            Buat momen spesial terasa lebih personal dengan undangan digital yang elegan, modern, ringan, dan nyaman dibuka dari smartphone.
-          </p>
-
-          <div class="hero-actions">
-            <a href="#katalog" class="btn-primary">Lihat Katalog</a>
-            <a href="https://wa.me/6282323624177?text=Halo%20Tewe%20Store%2C%20saya%20ingin%20konsultasi%20undangan%20digital." target="_blank" rel="noopener" class="btn-secondary">
-              Konsultasi
-            </a>
-          </div>
-
-          <div class="hero-note">
-            Premium look · Mobile first · Fast loading
-          </div>
-        </div>
-
-        <div class="hero-showcase">
-          <div class="phone-stage">
-            <div class="phone-frame">
-              <div class="phone-screen">
-                <div class="phone-content">
-                  <div class="phone-card">
-                    <small>THE WEDDING OF</small>
-                    <h3>Raka &amp; Aulia</h3>
-                    <p>Sabtu, 21 November 2026</p>
-                  </div>
+<div id="captureWrapper" class="canvas-font w-full max-w-[400px] aspect-[3/4] flex items-center justify-center bg-slate-800 dark:bg-[#e2e8f0] relative transition-colors duration-300">
+    <div id="tweetCard" class="w-[85%] max-w-[260px] bg-white dark:bg-[#161a22] text-slate-900 dark:text-white p-3.5 shrink-0 rounded-[1rem] custom-shadow flex flex-col relative z-10 transition-colors duration-300">
+        <div class="flex justify-between items-start mb-1.5">
+            <div class="flex gap-1.5 items-start">
+                <img id="outAvatar" class="w-7 h-7 min-w-[28px] min-h-[28px] aspect-square rounded-full object-cover bg-gray-200 dark:bg-gray-800 flex-shrink-0 high-res-img" alt="" crossorigin="anonymous">
+                <div class="flex flex-col min-w-0">
+                    <div class="flex items-center gap-1 flex-wrap">
+                        <span id="outName" class="font-bold hover:underline cursor-pointer text-[11px] break-words"></span>
+                    </div>
+                    <span class="text-slate-500 dark:text-gray-500 text-[10px] break-words leading-tight">@<span id="outUsername"></span></span>
                 </div>
-              </div>
             </div>
-          </div>
+            <svg viewBox="0 0 24 24" class="w-3 h-3 fill-current text-slate-400 dark:text-gray-500 cursor-pointer flex-shrink-0 mt-0.5"><g><path d="M3 12c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9 2c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm7 0c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"></path></g></svg>
         </div>
-
-      </div>
+        
+        <div id="outText" class="text-[11px] leading-relaxed mb-1.5 whitespace-pre-wrap break-words"></div>
+        
+        <div id="outPostImageWrapper" class="w-full h-auto max-h-[180px] rounded-xl mb-1.5 hidden border border-slate-200 dark:border-gray-800 overflow-hidden shrink-0">
+            <img id="outPostImage" class="w-full h-full object-cover object-center block high-res-img" alt="" crossorigin="anonymous">
+        </div>
+        
+        <div class="text-slate-500 dark:text-gray-500 text-[10px] flex gap-1 items-center border-b border-slate-200 dark:border-gray-800 pb-1.5 mb-1 mt-1 flex-wrap transition-colors duration-300">
+            <span id="outTime" class="hover:underline cursor-pointer"></span> · 
+            <span id="outDate" class="hover:underline cursor-pointer"></span> · 
+            <span class="text-slate-900 dark:text-white font-bold" id="outViews">1.2M</span> <span class="hover:underline cursor-pointer">Views</span>
+        </div>
+        
+        <div class="flex gap-2.5 text-[10px] text-slate-500 dark:text-gray-500 border-b border-slate-200 dark:border-gray-800 pb-1.5 mb-1.5 flex-wrap transition-colors duration-300">
+            <div class="flex gap-1 items-center"><span id="outReposts" class="text-slate-900 dark:text-white font-bold">45K</span> Reposts</div>
+            <div class="flex gap-1 items-center"><span id="outQuotes" class="text-slate-900 dark:text-white font-bold">12K</span> Quotes</div>
+            <div class="flex gap-1 items-center"><span id="outLikes" class="text-slate-900 dark:text-white font-bold">150K</span> Likes</div>
+        </div>
+        
+        <div class="flex justify-between text-slate-500 dark:text-gray-500 px-0.5 mt-0.5 transition-colors duration-300">
+            <div class="flex items-center gap-1"><svg viewBox="0 0 24 24" class="w-[13px] h-[13px] fill-current"><g><path d="M1.751 10c0-4.42 3.584-8 8.005-8h4.366c4.49 0 8.129 3.64 8.129 8.13 0 2.96-1.607 5.68-4.196 7.11l-8.054 4.46v-3.69h-.067c-4.49.1-8.183-3.51-8.183-8.01zm8.005-6c-3.317 0-6.005 2.69-6.005 6 0 3.37 2.77 6.08 6.138 6.01l.351-.01h1.761v2.3l5.087-2.81c1.951-1.08 3.163-3.13 3.163-5.36 0-3.39-2.744-6.13-6.129-6.13H9.756z"></path></g></svg></div>
+            <div class="flex items-center gap-1"><svg viewBox="0 0 24 24" class="w-[13px] h-[13px] fill-current"><g><path d="M4.5 3.88l4.432 4.14-1.364 1.46L5.5 7.55V16c0 1.1.896 2 2 2H13v2H7.5c-2.209 0-4-1.79-4-4V7.55L1.432 9.48.068 8.02 4.5 3.88zM16.5 6H11V4h5.5c2.209 0 4 1.79 4 4v8.45l2.068-1.93 1.364 1.46-4.432 4.14-4.432-4.14 1.364-1.46 2.068 1.93V8c0-1.1-.896-2-2-2z"></path></g></svg></div>
+            <div class="flex items-center gap-1"><svg viewBox="0 0 24 24" class="w-[13px] h-[13px] fill-current"><g><path d="M16.697 5.5c-1.222-.06-2.679.51-3.89 2.16l-.805 1.09-.806-1.09C9.984 6.01 8.526 5.44 7.304 5.5c-1.243.07-2.349.78-2.91 1.91-.552 1.12-.633 2.78.479 4.82 1.074 1.97 3.257 4.27 7.129 6.61 3.87-2.34 6.052-4.64 7.126-6.61 1.111-2.04 1.03-3.7.477-4.82-.561-1.13-1.666-1.84-2.908-1.91zm4.187 7.69c-1.351 2.48-4.001 5.12-8.379 7.67l-.503.3-.504-.3c-4.379-2.55-7.029-5.19-8.382-7.67-1.36-2.5-1.41-4.86-.514-6.67.887-1.79 2.647-2.91 4.601-3.01 1.651-.09 3.368.56 4.798 2.01 1.429-1.45 3.146-2.1 4.796-2.01 1.954.1 3.714 1.22 4.601 3.01.896 1.81.846 4.17-.514 6.67z"></path></g></svg></div>
+            <div class="flex items-center gap-1 text-[#1d9bf0]"><svg viewBox="0 0 24 24" class="w-[13px] h-[13px] fill-current"><g><path d="M4 4.5C4 3.12 5.119 2 6.5 2h11C18.881 2 20 3.12 20 4.5v18.44l-8-5.71-8 5.71V4.5zM6.5 4c-.276 0-.5.22-.5.5v14.56l6-4.29 6 4.29V4.5c0-.28-.224-.5-.5-.5h-11z"></path></g></svg></div>
+            <div class="flex items-center gap-1"><svg viewBox="0 0 24 24" class="w-[13px] h-[13px] fill-current"><g><path d="M12 2.59l5.7 5.7-1.41 1.42L13 6.41V16h-2V6.41l-3.3 3.3-1.41-1.42L12 2.59zM21 15l-.02 3.51c0 1.38-1.12 2.49-2.5 2.49H5.5C4.11 21 3 19.88 3 18.5V15h2v3.5c0 .28.22.5.5.5h12.98c.28 0 .5-.22.5-.5L19 15h2z"></path></g></svg></div>
+        </div>
     </div>
-  </section>
+</div>
 
-  <section id="katalog" class="section section-soft">
-    <div class="container-main">
-      <div class="section-head">
-        <div class="section-kicker">Katalog</div>
-        <h2 class="section-title">Pilih surat cinta yang paling cocok.</h2>
-        <p class="section-desc">
-          Berbagai gaya undangan digital untuk pernikahan, lamaran, ulang tahun, dan momen spesial lainnya.
-        </p>
-      </div>
+<button id="btnOpenModal" class="fixed bottom-6 right-6 w-14 h-14 bg-[#155e75] rounded-[20px] shadow-lg shadow-[#155e75]/30 flex items-center justify-center text-white hover:scale-[1.05] active:scale-95 transition-transform z-40">
+    <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+</button>
 
-      <div class="catalog-grid">
+<div id="modalContainer" class="fixed inset-0 z-50 hidden bg-[#155e75]/40 backdrop-blur-sm items-center justify-center p-4 transition-opacity">
+    <div class="bg-[#f4fbff] border border-white/60 p-6 rounded-[35px] shadow-2xl w-full max-w-[400px] flex flex-col relative overflow-hidden animate-[fadeIn_0.3s_ease-out]">
+        
+        <div class="absolute -top-10 -right-10 w-64 h-64 bg-gradient-to-br from-[#38bdf8] to-[#0369a1] rounded-full blur-3xl opacity-30 pointer-events-none"></div>
+        <div class="absolute top-40 -left-20 w-72 h-72 bg-[#7dd3fc] rounded-full blur-3xl opacity-40 pointer-events-none"></div>
+        <div class="absolute -bottom-20 right-0 w-80 h-80 bg-[#bae6fd] rounded-full blur-3xl opacity-50 pointer-events-none"></div>
 
-        <article class="card invitation-card">
-          <div class="card-image-wrap">
-            <img
-              class="card-image"
-              src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=75"
-              alt="Undangan wedding elegant"
-              loading="lazy"
-              decoding="async"
-              width="900"
-              height="1125"
-            >
-            <div class="card-badge">Best Seller</div>
-          </div>
-          <div class="card-body">
-            <div class="card-category">Wedding</div>
-            <h3 class="card-title">Romantic Story</h3>
-            <p class="card-text">Desain lembut dengan nuansa romantis dan elegan untuk hari bahagia.</p>
-            <div class="card-footer">
-              <div class="card-price">Mulai konsultasi</div>
-              <a href="https://wa.me/6282323624177?text=Halo%20Tewe%20Store%2C%20saya%20tertarik%20dengan%20template%20Romantic%20Story." target="_blank" rel="noopener" class="btn-primary">Pilih</a>
+        <div class="relative z-10 flex flex-col w-full h-full">
+            <button id="btnCloseModal" class="absolute top-0 right-0 text-[#155e75]/60 hover:text-rose-500 bg-white/60 p-1.5 rounded-xl transition-all shadow-sm cursor-pointer">
+                <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+            </button>
+            
+            <h2 class="text-[#155e75] text-lg font-semibold text-center mb-6 tracking-wide">Kustomisasi</h2>
+            
+            <div class="flex flex-col gap-4 overflow-y-auto max-h-[60vh] p-2">
+                <div class="grid grid-cols-2 gap-3 px-1.5">
+                    <div class="flex flex-col gap-1.5">
+                        <label class="text-[11px] font-medium px-2 text-[#155e75]/80">Nama :</label>
+                        <input type="text" id="inName" class="w-full h-11 block glass-panel bg-transparent px-4 rounded-2xl text-[#155e75] focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#38bdf8]/50 transition-all text-xs shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] placeholder-[#155e75]/50" placeholder="Tri Wantoro">
+                    </div>
+                    <div class="flex flex-col gap-1.5">
+                        <label class="text-[11px] font-medium px-2 text-[#155e75]/80">Username :</label>
+                        <input type="text" id="inUsername" class="w-full h-11 block glass-panel bg-transparent px-4 rounded-2xl text-[#155e75] focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#38bdf8]/50 transition-all text-xs shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] placeholder-[#155e75]/50" placeholder="tewetech.id">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3 px-1.5">
+                    <div class="flex flex-col gap-1.5">
+                        <label class="bg-white/70 hover:bg-white text-[#155e75] border border-white font-medium h-11 px-2 rounded-2xl cursor-pointer text-xs flex items-center justify-center w-full transition-all duration-200 shadow-sm hover:shadow-md hover:scale-[1.03] active:scale-95 text-center">
+                            Foto Profil (Persegi)
+                            <input type="file" id="inAvatarFile" accept="image/*" class="hidden">
+                        </label>
+                    </div>
+                    <div class="flex flex-col gap-1.5">
+                        <label class="bg-white/70 hover:bg-white text-[#155e75] border border-white font-medium h-11 px-2 rounded-2xl cursor-pointer text-xs flex items-center justify-center w-full transition-all duration-200 shadow-sm hover:shadow-md hover:scale-[1.03] active:scale-95 text-center">
+                            Gambar Post
+                            <input type="file" id="inPostImageFile" accept="image/*" class="hidden">
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col gap-1.5 px-1.5">
+                    <label class="text-[11px] font-medium px-2 text-[#155e75]/80">Pesan :</label>
+                    <textarea id="inText" class="w-full block glass-panel bg-transparent p-4 rounded-2xl text-[#155e75] focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#38bdf8]/50 transition-all text-xs resize-none min-h-[90px] shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] placeholder-[#155e75]/50" placeholder="Halo, saya Tri Wantoro, seorang frontend developer dan graphic designer. Ketik sesuatu di sini..."></textarea>
+                </div>
+                
+                <div class="px-1.5">
+                    <button id="btnDownload" class="w-full h-[40px] px-6 rounded-2xl bg-[#155e75] text-white font-medium hover:bg-[#0e7490] hover:scale-[1.01] transition-all duration-300 text-xs tracking-wide shadow-lg shadow-[#155e75]/20 flex items-center justify-center mt-2 shrink-0">
+                        UNDUH
+                    </button>
+                </div>
             </div>
-          </div>
-        </article>
-
-        <article class="card invitation-card">
-          <div class="card-image-wrap">
-            <img
-              class="card-image"
-              src="https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?auto=format&fit=crop&w=900&q=75"
-              alt="Undangan wedding classic"
-              loading="lazy"
-              decoding="async"
-              width="900"
-              height="1125"
-            >
-            <div class="card-badge">Elegant</div>
-          </div>
-          <div class="card-body">
-            <div class="card-category">Wedding</div>
-            <h3 class="card-title">Classic Love</h3>
-            <p class="card-text">Tampilan klasik dengan komposisi bersih untuk pasangan yang menyukai kesederhanaan.</p>
-            <div class="card-footer">
-              <div class="card-price">Mulai konsultasi</div>
-              <a href="https://wa.me/6282323624177?text=Halo%20Tewe%20Store%2C%20saya%20tertarik%20dengan%20template%20Classic%20Love." target="_blank" rel="noopener" class="btn-primary">Pilih</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card invitation-card">
-          <div class="card-image-wrap">
-            <img
-              class="card-image"
-              src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=900&q=75"
-              alt="Undangan wedding floral"
-              loading="lazy"
-              decoding="async"
-              width="900"
-              height="1125"
-            >
-            <div class="card-badge">Popular</div>
-          </div>
-          <div class="card-body">
-            <div class="card-category">Wedding</div>
-            <h3 class="card-title">Floral Letter</h3>
-            <p class="card-text">Perpaduan floral dan warna hangat yang memberikan nuansa manis dan berkelas.</p>
-            <div class="card-footer">
-              <div class="card-price">Mulai konsultasi</div>
-              <a href="https://wa.me/6282323624177?text=Halo%20Tewe%20Store%2C%20saya%20tertarik%20dengan%20template%20Floral%20Letter." target="_blank" rel="noopener" class="btn-primary">Pilih</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card invitation-card">
-          <div class="card-image-wrap">
-            <img
-              class="card-image"
-              src="https://images.unsplash.com/photo-1529634597503-139d3726fed5?auto=format&fit=crop&w=900&q=75"
-              alt="Undangan wedding modern"
-              loading="lazy"
-              decoding="async"
-              width="900"
-              height="1125"
-            >
-            <div class="card-badge">Modern</div>
-          </div>
-          <div class="card-body">
-            <div class="card-category">Wedding</div>
-            <h3 class="card-title">Modern Letter</h3>
-            <p class="card-text">Layout minimalis dan modern dengan fokus utama pada foto dan cerita pasangan.</p>
-            <div class="card-footer">
-              <div class="card-price">Mulai konsultasi</div>
-              <a href="https://wa.me/6282323624177?text=Halo%20Tewe%20Store%2C%20saya%20tertarik%20dengan%20template%20Modern%20Letter." target="_blank" rel="noopener" class="btn-primary">Pilih</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card invitation-card">
-          <div class="card-image-wrap">
-            <img
-              class="card-image"
-              src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=900&q=75"
-              alt="Undangan wedding timeless"
-              loading="lazy"
-              decoding="async"
-              width="900"
-              height="1125"
-            >
-            <div class="card-badge">Premium</div>
-          </div>
-          <div class="card-body">
-            <div class="card-category">Wedding</div>
-            <h3 class="card-title">Timeless Romance</h3>
-            <p class="card-text">Konsep elegan yang dirancang agar tetap cantik, sederhana, dan tidak cepat terasa usang.</p>
-            <div class="card-footer">
-              <div class="card-price">Mulai konsultasi</div>
-              <a href="https://wa.me/6282323624177?text=Halo%20Tewe%20Store%2C%20saya%20tertarik%20dengan%20template%20Timeless%20Romance." target="_blank" rel="noopener" class="btn-primary">Pilih</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card invitation-card">
-          <div class="card-image-wrap">
-            <img
-              class="card-image"
-              src="https://images.unsplash.com/photo-1494955870715-979ca4f13bf0?auto=format&fit=crop&w=900&q=75"
-              alt="Undangan wedding intimate"
-              loading="lazy"
-              decoding="async"
-              width="900"
-              height="1125"
-            >
-            <div class="card-badge">New</div>
-          </div>
-          <div class="card-body">
-            <div class="card-category">Special Moment</div>
-            <h3 class="card-title">Intimate Story</h3>
-            <p class="card-text">Cocok untuk acara sederhana dengan tampilan personal dan hangat.</p>
-            <div class="card-footer">
-              <div class="card-price">Mulai konsultasi</div>
-              <a href="https://wa.me/6282323624177?text=Halo%20Tewe%20Store%2C%20saya%20tertarik%20dengan%20template%20Intimate%20Story." target="_blank" rel="noopener" class="btn-primary">Pilih</a>
-            </div>
-          </div>
-        </article>
-
-      </div>
+        </div>
     </div>
-  </section>
-
-  <section id="keunggulan" class="section">
-    <div class="container-main">
-      <div class="section-head">
-        <div class="section-kicker">Kenapa Kami</div>
-        <h2 class="section-title">Dibuat untuk dibuka dengan nyaman.</h2>
-        <p class="section-desc">
-          Bukan hanya cantik. Undangan dibuat dengan perhatian pada pengalaman pengguna terutama di perangkat mobile.
-        </p>
-      </div>
-
-      <div class="features">
-
-        <div class="feature-card">
-          <div class="feature-icon">♡</div>
-          <h3 class="feature-title">Elegan</h3>
-          <p class="feature-text">Visual dirancang agar tetap terasa premium tanpa berlebihan.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">↗</div>
-          <h3 class="feature-title">Responsif</h3>
-          <p class="feature-text">Tampilan menyesuaikan smartphone, tablet, hingga desktop.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">⚡</div>
-          <h3 class="feature-title">Ringan</h3>
-          <p class="feature-text">Struktur dibuat sederhana agar loading dan scrolling tetap nyaman.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">∞</div>
-          <h3 class="feature-title">Interaktif</h3>
-          <p class="feature-text">Bisa dilengkapi galeri, maps, RSVP, countdown, musik dan fitur lainnya.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section id="cara-order" class="section section-soft">
-    <div class="container-main">
-      <div class="section-head">
-        <div class="section-kicker">Cara Order</div>
-        <h2 class="section-title">Semudah menulis surat.</h2>
-        <p class="section-desc">
-          Proses dibuat sederhana supaya kamu bisa fokus pada persiapan acara.
-        </p>
-      </div>
-
-      <div class="steps">
-
-        <div class="step">
-          <div class="step-number">1</div>
-          <div>
-            <h3 class="step-title">Pilih desain</h3>
-            <p class="step-text">Tentukan template yang paling sesuai dengan konsep acaramu.</p>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-number">2</div>
-          <div>
-            <h3 class="step-title">Kirim data</h3>
-            <p class="step-text">Kirim nama, tanggal, lokasi, foto, teks dan kebutuhan lainnya.</p>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-number">3</div>
-          <div>
-            <h3 class="step-title">Proses desain</h3>
-            <p class="step-text">Undangan disiapkan sesuai data dan konsep yang telah dipilih.</p>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-number">4</div>
-          <div>
-            <h3 class="step-title">Bagikan</h3>
-            <p class="step-text">Setelah selesai, undangan siap dibagikan kepada keluarga dan teman.</p>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="mt-8">
-        <div class="cta">
-          <h3 class="cta-title">Siap membuat cerita sendiri?</h3>
-          <p class="cta-text">
-            Konsultasikan desain undangan digitalmu bersama Tewe Store melalui WhatsApp.
-          </p>
-          <div class="cta-actions">
-            <a href="https://wa.me/6282323624177?text=Halo%20Tewe%20Store%2C%20saya%20ingin%20order%20undangan%20digital%20di%20suratcintakita." target="_blank" rel="noopener" class="btn-primary">
-              Chat WhatsApp
-            </a>
-            <a href="#katalog" class="btn-secondary">
-              Lihat Template
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="kontak" class="section">
-    <div class="container-main">
-      <div class="contact-grid">
-
-        <div class="contact-card">
-          <div class="contact-label">Developer</div>
-          <h2 class="contact-title">Tewe Store</h2>
-          <p class="contact-info">
-            Developer dan penyedia undangan digital untuk berbagai kebutuhan acara spesial.
-          </p>
-          <a href="https://wa.me/6282323624177?text=Halo%20Tewe%20Store%2C%20saya%20ingin%20bertanya%20tentang%20undangan%20digital." target="_blank" rel="noopener" class="contact-link">
-            Chat Tewe Store
-            <span>→</span>
-          </a>
-        </div>
-
-        <div class="contact-card">
-          <div class="contact-label">Order</div>
-          <h2 class="contact-title">0823 2362 4177</h2>
-          <p class="contact-info">
-            Hubungi nomor WhatsApp ini untuk pemesanan, konsultasi desain, dan kebutuhan undangan digital.
-          </p>
-          <a href="https://wa.me/6282323624177?text=Halo%20Tewe%20Store%2C%20saya%20ingin%20order%20undangan%20digital." target="_blank" rel="noopener" class="contact-link">
-            Order via WhatsApp
-            <span>→</span>
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer class="footer">
-  <div class="container-main">
-    <div class="footer-inner">
-      <div class="footer-brand">suratcintakita</div>
-      <div class="footer-text">https://suratcintakita.netlify.app/</div>
-      <div class="footer-text">
-        © <span id="year"></span> suratcintakita · Developed by
-        <a href="https://wa.me/6282323624177?text=Halo%20Tewe%20Store" target="_blank" rel="noopener" class="footer-developer">Tewe Store</a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<div class="mobile-order">
-  <a href="https://wa.me/6282323624177?text=Halo%20Tewe%20Store%2C%20saya%20ingin%20order%20undangan%20digital%20di%20suratcintakita." target="_blank" rel="noopener">
-    <span>♡</span>
-    <span>Order Undangan Digital</span>
-  </a>
 </div>
 
 <script>
-(() => {
-  const yearEl = document.getElementById('year');
-  const header = document.getElementById('siteHeader');
+const e = i => document.getElementById(i);
+const mappings = {
+    inName: 'outName',
+    inUsername: 'outUsername',
+    inText: 'outText'
+};
 
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+e('btnToggleTheme').addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark');
+});
 
-  let lastY = window.scrollY;
-  let ticking = false;
+window.addEventListener('DOMContentLoaded', () => {
+    const now = new Date();
+    
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    const strTime = hours + ':' + minutes + ' ' + ampm;
+    
+    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const strDate = monthNames[now.getMonth()] + ' ' + now.getDate() + ', ' + now.getFullYear();
+    
+    e('outTime').textContent = strTime;
+    e('outDate').textContent = strDate;
 
-  const updateHeader = () => {
-    const currentY = window.scrollY;
-
-    if (currentY <= 20) {
-      header.style.transform = 'translate3d(0,0,0)';
-    } else if (currentY > lastY && currentY > 120) {
-      header.style.transform = 'translate3d(0,-100px,0)';
-    } else {
-      header.style.transform = 'translate3d(0,0,0)';
+    for (const [inputID, outputID] of Object.entries(mappings)) {
+        const inp = e(inputID);
+        const out = e(outputID);
+        out.textContent = inp.placeholder;
+        
+        inp.addEventListener('input', ev => {
+            out.textContent = ev.target.value || ev.target.placeholder;
+        });
     }
+});
 
-    lastY = currentY;
-    ticking = false;
-  };
+e('btnOpenModal').addEventListener('click', () => {
+    const modal = e('modalContainer');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+});
 
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      window.requestAnimationFrame(updateHeader);
-      ticking = true;
+e('btnCloseModal').addEventListener('click', () => {
+    const modal = e('modalContainer');
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+});
+
+e('inAvatarFile').addEventListener('change', ev => {
+    const file = ev.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = event => {
+            e('outAvatar').src = event.target.result;
+        };
+        reader.readAsDataURL(file);
     }
-  }, { passive: true });
+});
 
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener('click', event => {
-      const targetId = link.getAttribute('href');
+e('inPostImageFile').addEventListener('change', ev => {
+    const file = ev.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = event => {
+            const img = e('outPostImage');
+            img.src = event.target.result;
+            e('outPostImageWrapper').classList.remove('hidden');
+            e('outPostImageWrapper').classList.add('block');
+        };
+        reader.readAsDataURL(file);
+    }
+});
 
-      if (!targetId || targetId === '#') return;
-
-      const target = document.querySelector(targetId);
-      if (!target) return;
-
-      event.preventDefault();
-
-      target.scrollIntoView({
-        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
-        block: 'start'
-      });
+e('btnDownload').addEventListener('click', () => {
+    const element = e('captureWrapper');
+    const btn = e('btnDownload');
+    const avatar = e('outAvatar');
+    const originalHTML = btn.innerHTML;
+    
+    btn.innerHTML = '<svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>';
+    btn.classList.add('shimmer-box');
+    
+    const originalMt = avatar.style.marginTop;
+    avatar.style.marginTop = '7px';
+    
+    html2canvas(element, {
+        backgroundColor: null,
+        scale: 5,
+        useCORS: true,
+        allowTaint: true
+    }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = `story-${Date.now()}.png`;
+        link.href = canvas.toDataURL('image/png', 1.0);
+        link.click();
+    }).catch(() => {
+        alert("Gagal mengunduh gambar.");
+    }).finally(() => {
+        avatar.style.marginTop = originalMt;
+        btn.innerHTML = originalHTML;
+        btn.classList.remove('shimmer-box');
     });
-  });
-
-  if ('connection' in navigator) {
-    const connection = navigator.connection;
-    if (connection && (connection.saveData || /2g/.test(connection.effectiveType))) {
-      document.querySelectorAll('img[loading="lazy"]').forEach(img => {
-        img.setAttribute('loading', 'lazy');
-      });
-    }
-  }
-})();
+});
 </script>
-
 </body>
 </html>
